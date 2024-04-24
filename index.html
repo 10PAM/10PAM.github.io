@@ -60,13 +60,35 @@
             text-align: center;
         }
 
+        .intro{
+            border-right: 5px solid;
+            width: 19%;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: 
+            typing 2s, 
+            cursor .4s step-end infinite alternate;
+        }
+
+        .intro_anim{
+            display: inline;
+        }
+
+        @keyframes cursor{
+            50% {border-color: transparent;}
+        }
+        
+        @keyframes typing{
+            from {width: 0;}
+        }
+
     </style>
     
     <div class="container" style="margin-top: 0%" align="center">  
 
-        <div id="title">
+        <div class="intro_anim" id="title">
           
-            <p style="padding-right: 1%; font-size: 3.2vw; color: rgb(255, 255, 255);">Mario Aguilera</p>
+            <p class="intro" style="padding-right: 1%; font-size: 3.2vw; color: rgb(255, 255, 255);">Mario Aguilera</p>
         
         </div>
         
