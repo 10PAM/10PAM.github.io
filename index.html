@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Buttons.js"></script>
+    <title>My Portfolio</title>
+    <link rel="icon" type="image/png" href="Images/Doubloon.png">
+</head>
+<body>
+    <style>
+
+        .title{
+            padding-right: 1%;
+            text-align: center;
+        }
+
+        .about_me{
+            padding-right: 1%;
+            text-align: center;
+            width: 45%;
+        }
+
+        body 
+        {
+            background-size: contain;
+            background-attachment: fixed;
+            background-image: url('Images/GemStone.png');
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: 50% 0;
+            background-position-y: bottom;
+            background-color: rgb(0, 0, 0);
+            color: #000000;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            overscroll-behavior: contain;
+            -webkit-background-size: contain;
+            -moz-background-size: contain;
+            -o-background-size: contain;
+            padding-bottom: 70%;
+        }
+
+        .Button_Projects{
+            padding-right: 0%;
+            color: #ffffff;
+            background-color: rgb(119, 20, 20);
+            border: none;
+            text-align: center;
+            position: relative;
+            width: 300px;
+            height: 100px;
+            font-size: 20px;
+        }
+
+        .Button_Text_Alignment{
+            text-align: center;
+        }
+    </style>
+    
+    <div class="container" style="margin-top: 0%" align="center">  
+
+        <div id="title">
+          
+            <p style="padding-right: 1%; font-size: 55px; color: rgb(255, 255, 255);">Mario Aguilera</p>
+        
+        </div>
+        
+        <img class="landing_logo" src="Images/Image_MAP.png" alt="Portrait" style="padding-right: 1%;"
+        
+        width="300" 
+        height="300"
+       
+        >
+
+        <div class="about_me" width: 100px; height: 100px;>
+
+            <p style="font-size: 30px; color: rgb(255, 255, 255);">Hello, my name is Mario, and I have a passion for learning about how computers work on a fundemental level. More specifically, the software engineering side of them. Please feel free to explore my portfolio to see a few of the skills, education, and employment experience that I have attained over the years!</p>
+        
+        </div>
+
+        <section class="buttons">
+            <div style="padding-right: 1%;" class="button_container">
+
+                <button class="Button_Projects" onclick="myFunction('Education')" style="background: url(Images/Button_Border_Resized.png);">Education</button>
+                <button class="Button_Projects" onclick="myFunction('Skills')" style="background: url(Images/Button_Border_Resized.png);">Skills</button>
+                <button class="Button_Projects" onclick="myFunction('Employment')" style="background: url(Images/Button_Border_Resized.png);">Employment History</button>
+                <button class="Button_Projects" onclick="myFunction('Projects')" style="background: url(Images/Button_Border_Resized.png);">Projects</button>
+            
+            </div>
+       
+        </section>
+
+        <section class="Skills" id="Skills" style="width: 50%; display: none;">
+            <div>
+
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Please Find Below, My Self Evaluated Skills:</p>
+
+                <!--Soft Skills-->
+
+                <hr>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Soft Skills</p>
+                <hr>
+
+                <div>
+                    <div style="float: left; width: 65%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">Time Management</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">65</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+
+                <!--Soft Skills End-->
+
+                <!--Programming Skills Start-->
+
+                <div>
+                    <hr>
+                    <p style="font-size: 30px; color: rgb(255, 255, 255);">Programming Skills</p>
+                    <hr>
+                </div>
+                
+                <div>
+                    <div style="float: left; width: 90%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">Lua</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">90</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                <div>
+                    <div style="float: left; width: 30%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">C#</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">30</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                <div>
+                    <div style="float: left; width: 25%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">HTML</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">25</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                <div>
+                    <div style="float: left; width: 25%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">JavaScript</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">25</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                <div>
+                    <div style="float: left; width: 20%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">C++</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">20</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+    
+                <div>
+                    <div style="float: left; width: 10%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">Java</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">10</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                <!--Programming Skills End-->
+
+                <!--Networking Skills Start-->
+
+                <div>
+                    <hr>
+                    <p style="font-size: 30px; color: rgb(255, 255, 255);">Cybersecurity Skills</p>
+                    <hr>
+                </div>
+                
+                <div>
+                    <div style="float: left; width: 75%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">Windows 10 & 11 Hardening</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">75</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                <div>
+                    <div style="float: left; width: 60%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">Ubuntu Hardening</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">60</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                
+                <!--Networking Skills End-->
+
+                <!--Game Engine Skills Start-->
+
+                <div>
+                    <hr>
+                    <p style="font-size: 30px; color: rgb(255, 255, 255);">Game Engine Skills</p>
+                    <hr>
+                </div>
+                
+                <div>
+                    <div style="float: left; width: 90%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">Roblox Studio</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">90</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                <div>
+                    <div style="float: left; width: 40%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">Unity</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">40</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                <div>
+                    <div style="float: left; width: 20%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">UE4</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">20</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                
+                <!--Game Engine Skills End-->
+
+                <!--3D Modeling Software Skills Start-->
+
+                <div>
+                    <hr>
+                    <p style="font-size: 30px; color: rgb(255, 255, 255);">3D Modeling Software Skills</p>
+                    <hr>
+                </div>
+                
+                <div>
+                    <div style="float: left; width: 70%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">Blender</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">70</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                <!--3D Modeling Software Skills End-->
+                
+
+                <!--3D Modeling Software Skills Start-->
+
+                <div>
+                    <hr>
+                    <p style="font-size: 30px; color: rgb(255, 255, 255);">2D Design Software Skills</p>
+                    <hr>
+                </div>
+                
+                <div>
+                    <div style="float: left; width: 99%;">
+                        <hr>
+                        <span style="float: left; font-size: 30px; color: rgb(255, 255, 255);">Paint.net</span>
+                        <span style="float: right; font-size: 30px; color: rgb(255, 255, 255);">99</span>
+                        <div style="clear: both;"></div>
+                        <hr>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                <!--3D Modeling Software Skills End-->
+
+            </div>
+        </section>
+
+        <!--Employment History Start-->
+
+        <section class="Employment" id="Employment" style="width: 50%; display: none;">
+            <div>
+
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Please Find Below, My Employment History:</p>
+
+                <hr>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Sears: Cashier</p>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Location: Union Gap, WA, United States</p>
+                <p style="font-size: 20px; color: rgb(255, 255, 255);">I worked as a cashier and learned ways of improving my customer service and satisfaction skills, along with better ways to improve my time management skill.</p>
+                <hr>
+
+                
+                <hr>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Zirkle Fruit Company: General Warehouse Labor</p>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Location: Selah, WA, United States</p>
+                <p style="font-size: 20px; color: rgb(255, 255, 255);">I worked as a warehouse packing employee, where I packed apples, cherries, and blueberries. I learned about ways to improve my listening and working skills in order to do my job more efficiently under pressure.</p>
+                <hr>
+
+            </div>
+        </section>
+
+        <!--Employment History End-->
+        
+        <!--Education Start-->
+
+        <section class="Education" id="Education" style="width: 50%; display: none;">
+            <div>
+
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Please Find Below, My Education History:</p>
+
+                <hr>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Central Washington University</p>
+                <img style="width: 10%; height: 10%;" src="Images/CWU_Logo.png" alt="CWU Mascot">
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">September 2024 to June 2028</p>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Location: Ellensburg, WA, United States</p>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Computer Science Bachelor's Degree, In Progress</p>
+                <p style="font-size: 20px; color: rgb(255, 255, 255);">I will be attending Central Washington University in hopes of attaining a bachelor's degree in Computer Science.</p>
+                <hr>
+
+                
+                <hr>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Yakima Valley Technical Skills Center</p>
+                <img style="width: 10%; height: 10%;" src="Images/YVTECH_Logo.png" alt="YVTECH Logo">
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">August 2022 to June 2024</p>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Location: Yakima, WA, United States</p>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Cybersecurity Certificate of Completion, In Progress</p>
+                <p style="font-size: 20px; color: rgb(255, 255, 255);">I am currently attending Yakima Valley Technical Skills Center with a determination of attaining a certificate of completion for Cybersecurity.</p>
+                <hr>
+
+                <hr>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">A.C Davis High School</p>
+                <img style="width: 10%; height: 10%;" src="Images/Davis_Logo.png" alt="A.C Davis High School Logo">
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">August 2019 to June 2024</p>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Location: Yakima, WA, United States</p>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">Diploma, In Progress</p>
+                <p style="font-size: 20px; color: rgb(255, 255, 255);">I am currently attending A.C Davis High School with a determination of getting my diploma.</p>
+                <hr>
+
+            </div>
+        </section>
+
+        <!--Education End-->
+
+        <!--Projects Start-->
+
+        <section class="Projects" id="Projects" style="width: 50%; display: none;">
+            <div>
+                <p style="font-size: 30px; color: rgb(255, 255, 255);">I've Yet to Update my Projects.</p>
+            </div>
+        </section>
+
+        <!--Projects Start-->
+
+    </div>
+</body>
+</html>
