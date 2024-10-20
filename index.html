@@ -64,6 +64,25 @@
             cursor .4s step-end infinite alternate;
         }
 
+        .Project1_Img:hover{
+            box-shadow: 0px 0px 5px rgb(255, 255, 255);
+        }
+        
+        .Project2_Img:hover{
+            box-shadow: 0px 0px 5px rgb(255, 255, 255);
+        }
+
+        
+        .Project3_Img:hover{
+            box-shadow: 0px 0px 5px rgb(255, 255, 255);
+        }
+
+        
+        .Project4_Img:hover{
+            box-shadow: 0px 0px 5px rgb(255, 255, 255);
+        }
+
+
         .intro_anim{
             display: inline;
         }
@@ -527,78 +546,106 @@
         <!--Projects Start-->
 
         <section class="Projects" id="Projects" style="width: 90%; display: none;">
+            
             <div>
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Previous and Up to Date Projects Below:</p>
             </div>
 
+            <hr>
+
+            <!--Project Buttons: box-shadow: 0px 0px 5px rgb(255, 255, 255); -->
+            <a id="Project1_Bttn" onclick="myFunctionProject('Project1')" >
+                <img class="Project1_Img" src="Images/Clockwork_Icon.png" alt="Clockwork Universe Project" style="border: 4px solid rgb(255, 255, 255); border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 8%; height: 8%; margin-right: 3%;">
+            </a>
+            <a onclick="myFunctionProject('Project2')">
+                <img class="Project2_Img" src="Images/Laptop_Icon.png" alt="Laptop Dissasembly and Reassembly Project" style="border: 4px solid rgb(255, 255, 255); border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 8%; height: 8%; margin-right: 3%;">
+            </a>
+            <a onclick="myFunctionProject('Project3')">
+                <img class="Project3_Img" src="Images/PCRebuild_Icon.png" alt="PC Dissasembly and Reassembly Project" style="border: 4px solid rgb(255, 255, 255); border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 8%; height: 8%; margin-right: 3%;">
+            </a>
+            <a onclick="myFunctionProject('Project4')">
+                <img class="Project4_Img" src="Images/PC_Icon.png" alt="Personal PC Build Project" style="border: 4px solid rgb(255, 255, 255); border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 8%; height: 8%; margin-right: 3%;">
+            </a>
+
+            <hr>
+
             <!--Project 1 Start-->
+            <section class="Project1" id="Project1" style="width: 100%; display: none;">
 
-            <hr>
-            <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Clockwork Universe</p>
-            <video style="width: 100%; height: 80%;" controls>
-                <source src="Videos/Showcase_2.mp4" type="video/mp4">
-                 Your browser does not support the video tag.
-            </video>
+                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Clockwork Universe</p>
+                
+                <iframe style="width: 50vw; height: 40vh;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                    src="https://www.youtube.com/embed/IzMQjMN1dqw">
+                </iframe>
 
-            <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is a project that I had worked on during my Senior year of High School, and is one of the most up to date showcase I have of video game development. In this, I used the Roblox Studio game engine, and I focused on memory optimization by ensuring lower polies to enhance performance, making use of client replication to optimize memory usage on the back-end, limiting nested logic statements when not needed to be nested, adding comments to my scripts to ensure ease of finding certain functions in case of needing to go and add, renove, or fix something, adding debounces to prevent excessive inputs, setting up cooldowns to towers as far as allowing a target to be damaged only once every other few seconds which can be seen with the "Flame Thrower" Trap while still allowing other targets to be damaged, using loops only when needed and on the client rather than on the server, and ensuring that player inputs were as bug free as possible. The key takeaway from this project that I had was memory optimization, ensuring fault tolerant logic, reusing functions to keep code small and concise, and most importantley improving my time management skills.</p>
-            <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Concept: Tower Defense against Waves of Skeletons</p>
-            <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 3/15/24 to 3/30/24</p>
-            <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Access to the Game: https://www.roblox.com/games/15788568810/Clockwork-Universe</p>
-            <hr>
+                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is a project that I had worked on during my Senior year of High School, and is one of the most up to date showcase I have of video game development. In this, I used the Roblox Studio game engine, and I focused on memory optimization by ensuring lower polies to enhance performance, making use of client replication to optimize memory usage on the back-end, limiting nested logic statements when not needed to be nested, adding comments to my scripts to ensure ease of finding certain functions in case of needing to go and add, renove, or fix something, adding debounces to prevent excessive inputs, setting up cooldowns to towers as far as allowing a target to be damaged only once every other few seconds which can be seen with the "Flame Thrower" Trap while still allowing other targets to be damaged, using loops only when needed and on the client rather than on the server, and ensuring that player inputs were as bug free as possible. The key takeaway from this project that I had was memory optimization, ensuring fault tolerant logic, reusing functions to keep code small and concise, and most importantley improving my time management skills.</p>
+                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Concept: Tower Defense against Waves of Skeletons</p>
+                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 3/15/24 to 3/30/24</p>
+                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Access to the Game: https://www.roblox.com/games/15788568810/Clockwork-Universe</p>
+                <hr>
 
+            </section>
             <!--Project 1 End-->
 
             <!--Project 2 Start-->
 
-            <hr>
-            <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">School Laptop Disassembly and Reassembly</p>
+            <section class="Project2" id="Project2" style="width: 100%; display: none;">
+                
+                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">School Laptop Disassembly and Reassembly</p>
 
-            <div>
-                <img src="Images/Keyboard.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
-                <img src="Images/Pre_1.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
-                <img src="Images/Pre_2.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
-            </div>
+                <div>
+                    <img src="Images/Keyboard.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
+                    <img src="Images/Pre_1.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
+                    <img src="Images/Pre_2.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
+                </div>
 
-            <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This was a project we had done in my Cybersecurity vocational school (YVTECH), and the main focus of the project was to test our laptop dissambly and reassembly skills. I had not known much information about disassembling laptops before, but since we were able to chose one partner to be a team with, it helped us finish the project on time and with success. With this, I learned about ribbon wires. The key takeways that I had from this project were teamwork collaboration skills, reflecting on the importance of organizing to keep track of what was disconnected and what screws belonged to what, and improving my time management skills.</p>
-            <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 6/7/2023</p>
-            <hr>
+                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This was a project we had done in my Cybersecurity vocational school (YVTECH), and the main focus of the project was to test our laptop dissambly and reassembly skills. I had not known much information about disassembling laptops before, but since we were able to chose one partner to be a team with, it helped us finish the project on time and with success. With this, I learned about ribbon wires. The key takeways that I had from this project were teamwork collaboration skills, reflecting on the importance of organizing to keep track of what was disconnected and what screws belonged to what, and improving my time management skills.</p>
+                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 6/7/2023</p>
+                <hr>
+
+            </section>
 
             <!--Project 2 End-->
 
             <!--Project 3 Start-->
 
-            <hr>
-            <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">School PC Disassembly and Reassembly</p>
+            <section class="Project3" id="Project3" style="width: 100%; display: none;">
+                
+                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">School PC Disassembly and Reassembly</p>
 
-            <div>
-                <img src="Images/PC_Pre.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
-                <img src="Images/PC_1.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
-                <img src="Images/PC_2.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
-                <img src="Images/PC_3.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
-                <img src="Images/PC_4.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
-                <img src="Images/PC_Done.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
-                <img src="Images/PC_Done2.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
-            </div>
+                <div>
+                    <img src="Images/PC_Pre.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
+                    <img src="Images/PC_1.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
+                    <img src="Images/PC_2.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
+                    <img src="Images/PC_3.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
+                    <img src="Images/PC_4.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
+                    <img src="Images/PC_Done.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
+                    <img src="Images/PC_Done2.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
+                </div>
 
-            <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This was another project we had done in my Cybersecurity vocational school (YVTECH), and the main focus of the project was to test our PC dissambly and reassembly skills. With this project, I had previous knowledge of building a PC when I built my own before, and thankfully I ended up the project on time and with a successful boot up. The key takeways that I had from this project were experience matters, being thoughtful of what is being removed and added, and improving my time management skills.</p>
-            <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 6/6/2023</p>
-            <hr>
+                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This was another project we had done in my Cybersecurity vocational school (YVTECH), and the main focus of the project was to test our PC dissambly and reassembly skills. With this project, I had previous knowledge of building a PC when I built my own before, and thankfully I ended up the project on time and with a successful boot up. The key takeways that I had from this project were experience matters, being thoughtful of what is being removed and added, and improving my time management skills.</p>
+                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 6/6/2023</p>
+                <hr>
+
+            </section>
 
             <!--Project 3 End-->
 
             <!--Project 4 Start-->
 
-            <hr>
-            <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Personal PC Build</p>
+            <section class="Project4" id="Project4" style="width: 100%; display: none;">
 
-            <div>
-                <img src="Images/Personal_PC.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
-            </div>
+                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Personal PC Build</p>
 
-            <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is my PC, which I built while saving up for a better computer than my previous one. At the time, I had a Amazon pre-built compact pc which I loved up until I started getting into making games and realized that I needed quite a bit more processing power. After a while of saving up, I managed to build this PC which with the use of YouTube, I managed to wire and learn about assembling and disassembling computers. One noteable thing that I loved from this project was being able to keep and install the 512 GB HDD which I got from my first PC and use as extra storage after partitioning it.</p>
-            <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 5/20/2020</p>
-            <hr>
+                <div>
+                    <img src="Images/Personal_PC.png" alt="Portrait" style="-webkit-user-drag: none; width: 12%; height: 12%; margin-right: 1%;">
+                </div>
 
+                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is my PC, which I built while saving up for a better computer than my previous one. At the time, I had a Amazon pre-built compact pc which I loved up until I started getting into making games and realized that I needed quite a bit more processing power. After a while of saving up, I managed to build this PC which with the use of YouTube, I managed to wire and learn about assembling and disassembling computers. One noteable thing that I loved from this project was being able to keep and install the 512 GB HDD which I got from my first PC and use as extra storage after partitioning it.</p>
+                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 5/20/2020</p>
+                <hr>
+
+            </section>
             <!--Project 4 End-->
 
         </section>
