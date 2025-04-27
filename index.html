@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     
     <title>Mario Aguilera Piceno</title>
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width">
     
     <meta name="keywords" content="programmer, coding, console, java, sql, c, c++, games developer, software developer, english, spanish">
     <meta name="description" content="Software developer interested in low level programming and computer science.">
@@ -27,8 +27,7 @@
     <script src="Buttons.js"></script>
     <script src="Page_Scroll.js"></script>
     <link rel="icon" type="image/png" href="Images/Image_MAP.png">
-</head>
-<body>
+
     <style>
         * {
       touch-action: manipulation;
@@ -84,6 +83,8 @@
         }
 
         .intro{
+            text-align: center;
+            margin: auto;
             border-right: 5px solid;
             width: 33%;
             white-space: nowrap;
@@ -126,8 +127,9 @@
         }
 
     </style>
-    
-    <div class="container" align="center">  
+</head>
+<body>
+    <div class="container" style="margin: auto; text-align: center;">  
 
         <div class="intro_anim" id="title">
           
@@ -173,13 +175,13 @@
 
         <hr>
 
-        <div class="about_me" style="width: 90%;">
+        <div class="about_me" style="width: 90%; margin: auto; text-align: center;">
 
             <p style="font-size: 2.1vw; color: rgb(255, 255, 255);">Hello, and thank you for stopping by! My name is Mario, and I have a deep passion for understanding how computers work at a fundamental level, particularly in the realm of software engineering. Feel free to explore my portfolio, where you can learn more about some of the skills, education, and work experience that I've gained over the years.</p>
         
         </div>
 
-        <section style="width: 100%;" class="buttons">
+        <section id="Intro_Buttons" style="width: 100%; text-align: center; margin: auto;" class="buttons">
             
             <div class="button_container">
 
@@ -196,7 +198,7 @@
        
         </section>
 
-        <section class="Skills" id="Skills" style="width: 90%; display: none;">
+        <section class="Skills" id="Skills" style="width: 90%; display: none; text-align: center; margin: auto;">
             <div>
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Self Evaluated Skills Below:</p>
@@ -620,7 +622,7 @@
 
         <!--Employment History Start-->
 
-        <section class="Employment" id="Employment" style="width: 90%; display: none;">
+        <section class="Employment" id="Employment" style="width: 90%; display: none; text-align: center; margin: auto;">
             <div>
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Employment History Below:</p>
@@ -661,7 +663,7 @@
         
         <!--Education Start-->
 
-        <section class="Education" id="Education" style="width: 90%; display: none;">
+        <section class="Education" id="Education" style="width: 90%; display: none; text-align: center; margin: auto;">
             <div>
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Education History Below:</p>
@@ -698,7 +700,7 @@
 
         <!--Certifications and Awards Start-->
 
-        <section class="Certifications" id="Certifications" style="width: 90%; display: none;">
+        <section class="Certifications" id="Certifications" style="width: 90%; display: none; text-align: center; margin: auto;">
             <div>
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Certifications and Awards History Below:</p>
@@ -751,7 +753,7 @@
 
         <!--Projects Start-->
 
-        <section class="Projects" id="Projects" style="width: 90%; display: none;">
+        <section class="Projects" id="Projects" style="width: 90%; display: none; text-align: center; margin: auto;">
             
             <div>
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Previous and Up to Date Projects Below:</p>
@@ -790,11 +792,9 @@
                 
                 <br>
 
-                <section class="Video" id="Video_1" style="width: 80%; height: 100%">
-                    <iframe style="width: 100%; height: 100vh;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                    src="https://www.youtube-nocookie.com/embed/Y0kwEVogGg4?rel=0">
-                        <!-- If above line stops working, remove "-nocookie" from youtube.com and then remove "?rel=0"-->
-                    </iframe>
+                <section class="Video" id="Video_1" style="width: 80%; height: 100%; margin: auto; text-align: center;">
+                    <iframe style="width: 100%; height: 100vh;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen="1"
+                    src="https://www.youtube-nocookie.com/embed/Y0kwEVogGg4?rel=0"></iframe>
                 </section>
 
                 <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is a project that I had worked on during my free time while attending Central Washington University. It is a project I did using Visual Studio as the integrated development environment, the Visual Studio CLR C++ and .NET development kit, and Microsoft's SQLExpress as the server. The key things that I took from this project was learning more about C++ as a programming language, learning about how SQL works on a lower level, and learning about setting up and testing an SQL server.</p>
@@ -813,11 +813,9 @@
 
                 <br>
                 
-                <section class="Video" id="Video_1" style="width: 80%; height: 100%">
-                    <iframe style="width: 100%; height: 100vh;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                    src="https://www.youtube-nocookie.com/embed/IzMQjMN1dqw?rel=0">
-                        <!-- If above line stops working, remove "-nocookie" from youtube.com and then remove "?rel=0"-->
-                    </iframe>
+                <section class="Video" id="Video_2" style="width: 80%; height: 100%; margin: auto; text-align: center;">
+                    <iframe style="width: 100%; height: 100vh;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen="1"
+                    src="https://www.youtube-nocookie.com/embed/IzMQjMN1dqw?rel=0"></iframe>
                 </section>
 
                 <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is a project that I had worked on during my Senior year of High School, and is one of the most up to date showcase I have of video game development. In this, I used the Roblox Studio game engine, and I focused on memory optimization by ensuring lower 3D model polys to enhance performance, making use of client replication to optimize memory usage on the back-end, limiting nested logic statements when not needed to be nested, adding comments to my scripts to ensure ease of finding certain functions in case of needing to go and add, renove, or fix something, adding debounces to prevent excessive inputs, setting up cooldowns to towers as far as allowing a target to be damaged only once every other few seconds which can be seen with the "Flame Thrower" Trap while still allowing other targets to be damaged, using loops only when needed and on the client rather than on the server, and ensuring that player inputs were as bug free as possible. The key takeaway from this project that I had was memory optimization, ensuring fault tolerant logic, reusing functions to keep code small and concise, and most importantley improving my time management skills.</p>
@@ -904,7 +902,7 @@
 
         <!--Contact Start-->
 
-        <section class="Contact" id="Contact" style="width: 90%; display: none;">
+        <section class="Contact" id="Contact" style="width: 90%; display: none; text-align: center; margin: auto;">
             <div>
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Contact Information Below:</p>
@@ -922,7 +920,7 @@
 
         <!--Research Start-->
 
-        <section class="Research" id="Research" style="width: 90%; display: none;">
+        <section class="Research" id="Research" style="width: 90%; display: none; text-align: center; margin: auto;">
             <div>
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Research Section in Progress:</p>
@@ -934,7 +932,7 @@
 
         <!--Praises Start-->
 
-        <section class="Praises" id="Praises" style="width: 90%; display: none;">
+        <section class="Praises" id="Praises" style="width: 90%; display: none; text-align: center; margin: auto;">
             <div>
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">My Acknowledgements to Individuals, Publishments, and or Groups Who Have Led My Inspiration on Continuously Pursuing Software Engineering:</p>
