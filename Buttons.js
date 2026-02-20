@@ -48,9 +48,9 @@ function myFunctionTopClose(typ3) {
         window.scrollTo(0, 0);
     } else {
         document.getElementById(typ3).style.display = "none";
-        window.scrollTo(0, 0);
     }
 }
+
 
 
 
