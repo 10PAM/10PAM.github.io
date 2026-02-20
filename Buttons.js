@@ -7,7 +7,6 @@ function myFunction(typ3) {
     {
         var x_previous = document.getElementById(previous_ID);
         x_previous.style.display = "none";
-        window.scrollTo(0, 0);
     }
 
     //Hide Previous visible project if not null
@@ -15,7 +14,6 @@ function myFunction(typ3) {
     {
         var proj_previous = document.getElementById(previous_ID_Project);
         proj_previous.style.display = "none";
-        window.scrollTo(0, 0);
     }
 
     var x = document.getElementById(typ3);
@@ -24,7 +22,6 @@ function myFunction(typ3) {
         x.style.display = "block";
     } else {
         x.style.display = "none";
-        window.scrollTo(0, 0);
     }
   }
 
@@ -34,7 +31,6 @@ function myFunction(typ3) {
     {
         var x_previous = document.getElementById(previous_ID_Project);
         x_previous.style.display = "none";
-        window.scrollTo(0, 0);
     }
     
     var x = document.getElementById(typ3);
@@ -43,7 +39,6 @@ function myFunction(typ3) {
       x.style.display = "block";
     } else {
       x.style.display = "none";
-        window.scrollTo(0, 0);
     }
   }
 
@@ -56,5 +51,6 @@ function myFunctionBlog(typ3) {
         window.scrollTo(0, 0);
     }
 }
+
 
 
