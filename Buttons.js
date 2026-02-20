@@ -44,9 +44,10 @@ function myFunction(typ3) {
 
 // Handle Blog Buttons
 function myFunctionBlog(typ3) {
-    if (typ3 == "Top") {
+    if (typ3 === "Top") {
         window.scrollTo(0, 0);
     } else {
         document.getElementById("Blog").style.display = "none";
     }
 }
+
