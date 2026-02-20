@@ -42,15 +42,16 @@ function myFunction(typ3) {
     }
   }
 
-// Handle Blog Buttons
-function myFunctionBlog(typ3) {
+// Handle GoTo Top and Close Buttons
+function myFunction(typ3) {
     if (typ3 === "Top") {
         window.scrollTo(0, 0);
     } else {
-        document.getElementById("Blog").style.display = "none";
+        document.getElementById(typ3").style.display = "none";
         window.scrollTo(0, 0);
     }
 }
+
 
 
 
