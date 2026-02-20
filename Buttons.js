@@ -47,10 +47,11 @@ function myFunctionTopClose(typ3) {
     if (typ3 === "Top") {
         window.scrollTo(0, 0);
     } else {
-        document.getElementById(typ3").style.display = "none";
+        document.getElementById(typ3).style.display = "none";
         window.scrollTo(0, 0);
     }
 }
+
 
 
 
