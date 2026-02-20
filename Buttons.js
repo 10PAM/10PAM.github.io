@@ -43,7 +43,7 @@ function myFunction(typ3) {
   }
 
 // Handle GoTo Top and Close Buttons
-function myFunction(typ3) {
+function myFunctionTopClose(typ3) {
     if (typ3 === "Top") {
         window.scrollTo(0, 0);
     } else {
@@ -51,6 +51,7 @@ function myFunction(typ3) {
         window.scrollTo(0, 0);
     }
 }
+
 
 
 
