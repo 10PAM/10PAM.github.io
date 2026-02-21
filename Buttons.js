@@ -1,6 +1,17 @@
 var previous_ID = null;
 var previous_ID_Project = null;
 
+// Insert Subpages
+function innerPage(pageName) {
+    // Check Page; Insert HTML data if page exists
+    if (document.getElementById(pageName) !== null) {
+        let careerTextArea = document.getElementById(pageName+"_DIV");
+        const response = await fetch("/Pages/"+pageName);
+        const innerText = await response.text();
+        careerTextArea.innerHTML = innerText;
+    }
+}
+
 //Handle Menu Buttons' Inputs 
 function myFunction(typ3) {
     if (previous_ID !== null && typ3 !== previous_ID)
@@ -18,6 +29,7 @@ function myFunction(typ3) {
 
     var x = document.getElementById(typ3);
     previous_ID = typ3;
+
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -51,6 +63,7 @@ function myFunctionTopClose(typ3) {
         document.getElementById(typ3).style.display = "none";
     }
 }
+
 
 
 
