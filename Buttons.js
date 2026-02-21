@@ -66,9 +66,3 @@ function myFunctionTopClose(typ3) {
 
 // Run Functions
 innerPage("Calendar_DIV");
-
-
-
-
-
-
