@@ -8,7 +8,7 @@ var previous_ID = null;
 var previous_ID_Project = null;
 
 // Picture of the Day Prompt
-function picOfDay(action, description, date, url, elemID) {
+function picOfDay(elemID, description, date, url) {
 
     // Close if Already Open:
     let prompt = document.getElementById(elemID);
@@ -16,7 +16,7 @@ function picOfDay(action, description, date, url, elemID) {
     prompt.innerHTML = "";
 
     // Open or Close
-    if (action == "Open") {
+    if (description !== null) {
         let prompt = document.getElementById(elemID);
         prompt.innerHTML = 
         "<hr>" +
@@ -32,7 +32,7 @@ function picOfDay(action, description, date, url, elemID) {
         block: 'start'
         });
     } else {
-        let prompt = document.getElementById(action);
+        let prompt = document.getElementById(elemID);
         prompt.style.display = "none";
         prompt.innerHTML = "";
     }
@@ -122,6 +122,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
