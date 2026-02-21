@@ -23,6 +23,7 @@ function picOfDay(elemID, description, date, url) {
         }
 
         // Open Element
+        previous_pic_elemID = elemID;
         let prompt = document.getElementById(elemID);
         prompt.innerHTML = 
         "<div style='width: 100%; height: 100%; text-align: center;'>" + 
@@ -133,6 +134,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
