@@ -6,8 +6,9 @@ function innerPage(pageName) {
     // Check Page; Insert HTML data if page exists
     if (document.getElementById(pageName+"_DIV") !== null) {
         let careerTextArea = document.getElementById(pageName+"_DIV");
-        const response = await fetch("/Pages/"+pageName);
-        const innerText = await response.text();
+        let innerText = "";
+        fetch("./Pages/"+pageName+".html")
+        .then( data => innerText = data )
         careerTextArea.innerHTML = innerText;
     }
 }
@@ -66,3 +67,4 @@ function myFunctionTopClose(typ3) {
 
 // Run Functions
 innerPage("Calendar");
+
