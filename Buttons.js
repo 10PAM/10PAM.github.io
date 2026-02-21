@@ -8,10 +8,10 @@ var previous_ID = null;
 var previous_ID_Project = null;
 
 // Picture of the Day Prompt
-function picOfDay(action, description, date, url) {
+function picOfDay(action, description, date, url, elemID) {
 
     // Close if Already Open:
-    let prompt = document.getElementById("PicOfDayPrompt");
+    let prompt = document.getElementById(elemID);
     prompt.style.display = "none";
     prompt.innerHTML = "";
 
@@ -19,14 +19,16 @@ function picOfDay(action, description, date, url) {
     if (action == "Open") {
         let prompt = document.getElementById("PicOfDayPrompt");
         prompt.innerHTML = 
+        "<hr>" +
         "<h2 style='font-size: 2.8vw; color: rgb(255, 255, 255);'>Picture of the Day</h2>" +
         "<img src='" + url + "' style='aspect-ratio: 1/1; width: 50%; height: 50%; -webkit-user-drag: none;'>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + date + "</p>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + description + "</p>" + 
-        "<button style='color: #ffffff; outline: none; background-color: rgba(119, 20, 20, 0); border-color: #ffffff; border-radius: 1%; text-align: center; font-size: 1vw; width: 80%; height: 5%;' id='Close' onclick=\"picOfDay('Close')\">Close</button>";
+        "<button style='color: #ffffff; outline: none; background-color: rgba(119, 20, 20, 0); border-color: #ffffff; border-radius: 1%; text-align: center; font-size: 1vw; width: 80%; height: 5%;' id='Close' onclick=\"picOfDay('Close')\">Close</button>" + 
+        "<hr>";
         prompt.style.display = "block";
     } else {
-        let prompt = document.getElementById("PicOfDayPrompt");
+        let prompt = document.getElementById(elemID);
         prompt.style.display = "none";
         prompt.innerHTML = "";
     }
@@ -116,6 +118,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
