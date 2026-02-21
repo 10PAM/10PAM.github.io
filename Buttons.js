@@ -25,7 +25,7 @@ function picOfDay(elemID, description, date, url) {
         // Open Element
         let prompt = document.getElementById(elemID);
         prompt.innerHTML = 
-        "<div style='width: 100%, height: 100%'>" + 
+        "<div style='width: 100%; height: 100%; text-align: center;'>" + 
         "<hr>" +
         "<h2 style='font-size: 2.8vw; color: rgb(255, 255, 255);'>Picture of the Day</h2>" +
         "<img src='" + url + "' style='aspect-ratio: 1/1; width: 50%; height: 50%; -webkit-user-drag: none;'>" +
@@ -132,6 +132,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
