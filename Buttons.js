@@ -17,7 +17,7 @@ function innerPage(pageName) {
             console.error("Error loading page:", error);
         });
     } else {
-        console.log("Did not fetch: " + pageName);
+        console.log("Did not fetch: " + div_ID);
     }
 }
 
@@ -80,6 +80,7 @@ function myFunctionTopClose(typ3) {
 
 // Run Functions
 innerPage("Calendar");
+
 
 
 
