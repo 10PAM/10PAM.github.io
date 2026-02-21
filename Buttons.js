@@ -12,7 +12,7 @@ var previous_pic_elemID = null;
 function picOfDay(elemID, description, date, url) {
 
     // Open or Close
-    if (description !== null && date !== null && document.getElementById(elemID) !== null) {
+    if (description !== null && document.getElementById(elemID) !== null) {
 
         // Close if Already Open:
         if (previous_pic_elemID !== null && document.getElementById(previous_pic_elemID) !== null) {
@@ -45,7 +45,7 @@ function picOfDay(elemID, description, date, url) {
         console.log("Working on The Prompt?");
         let prompt = document.getElementById(elemID);
         prompt.style.display = "none";
-        prompt.innerHTML = "";
+        //prompt.innerHTML = "";
         previous_pic_ID = null;
     }
 }
@@ -134,6 +134,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
