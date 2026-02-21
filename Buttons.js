@@ -13,7 +13,7 @@ function picOfDay(action, description, date, url) {
         let prompt = document.getElementById("PicOfDayPrompt");
         prompt.innerHTML = 
         "<h2 style='font-size: 2.8vw; color: rgb(255, 255, 255);'>Picture of the Day</h2>" +
-        "<img src='" + url + "' style='aspect-ratio: 1/1; width: 50%; height: 50%; cursor: pointer; -webkit-user-drag: none;'>" +
+        "<img src='" + url + "' style='aspect-ratio: 1/1; width: 50%; height: 50%; -webkit-user-drag: none;'>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + date + "</p>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + description + "</p>" + 
         "<button style='color: #ffffff; outline: none; background-color: rgba(119, 20, 20, 0); border-color: #ffffff; border-radius: 1%; text-align: center;font-size: 1.6vw; width: 60%; height: 15%;' id='Close' onclick=\"picOfDay('Close')\">Close</button>";
@@ -109,6 +109,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
