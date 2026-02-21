@@ -9,6 +9,13 @@ var previous_ID_Project = null;
 
 // Picture of the Day Prompt
 function picOfDay(action, description, date, url) {
+
+    // Close if Already Open:
+    let prompt = document.getElementById("PicOfDayPrompt");
+    prompt.style.display = "none";
+    prompt.innerHTML = "";
+
+    // Open or Close
     if (action == "Open") {
         let prompt = document.getElementById("PicOfDayPrompt");
         prompt.innerHTML = 
@@ -109,6 +116,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
