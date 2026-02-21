@@ -25,13 +25,15 @@ function picOfDay(elemID, description, date, url) {
         // Open Element
         let prompt = document.getElementById(elemID);
         prompt.innerHTML = 
+        "<div style='width: 100%, height: 100%'>" + 
         "<hr>" +
         "<h2 style='font-size: 2.8vw; color: rgb(255, 255, 255);'>Picture of the Day</h2>" +
         "<img src='" + url + "' style='aspect-ratio: 1/1; width: 50%; height: 50%; -webkit-user-drag: none;'>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + date + "</p>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + description + "</p>" + 
         "<button style='color: #ffffff; outline: none; background-color: rgba(119, 20, 20, 0); border-color: #ffffff; border-radius: 1%; text-align: center; font-size: 1vw; width: 80%; height: 5%;' id='Close' onclick=\"picOfDay('" + elemID + "')\">Close</button>" + 
-        "<hr>";
+        "<hr>" +
+        "</div>";
         prompt.style.display = "block";
         prompt.scrollIntoView({
         behavior: 'smooth',
@@ -130,6 +132,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
