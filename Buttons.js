@@ -6,6 +6,7 @@ function innerPage(pageName) {
     // Check Page; Insert HTML data if page exists
     if (document.getElementById(pageName + "_DIV") !== null) {
         let careerTextArea = document.getElementById(pageName + "_DIV");
+        console.log("Fetched: " + pageName);
         fetch("./Pages/" + pageName + ".html")
         .then(response => response.text())
         .then(html => {
@@ -14,6 +15,8 @@ function innerPage(pageName) {
         .catch(error => {
             console.error("Error loading page:", error);
         });
+    } else {
+        console.log("Did not fetch: " + pageName);
     }
 }
 
@@ -71,3 +74,4 @@ function myFunctionTopClose(typ3) {
 
 // Run Functions
 innerPage("Calendar");
+
