@@ -7,7 +7,7 @@ function innerPage(pageName) {
     if (document.getElementById(pageName+"_DIV") !== null) {
         let careerTextArea = document.getElementById(pageName+"_DIV");
         let innerText = "";
-        fetch("Pages/" + pageName + ".html")
+        fetch("./Pages/" + pageName + ".html")
         .then(response => response.text())
         .then(html => {
             careerTextArea.innerHTML = html;
@@ -72,6 +72,7 @@ function myFunctionTopClose(typ3) {
 
 // Run Functions
 innerPage("Calendar");
+
 
 
 
