@@ -9,19 +9,18 @@ var previous_ID_Project = null;
 
 // Picture of the Day Prompt
 function picOfDay(action, description, date, url) {
-    console.log("Fetched: " + action);
     if (action == "Open") {
-        console.log("Open Succeeded");
-        let careerTextArea = document.getElementById("PicOfDayPrompt");
-        careerTextArea.innerHTML = 
+        let prompt = document.getElementById("PicOfDayPrompt");
+        prompt.innerHTML = 
         "<h2 style='font-size: 2.8vw; color: rgb(255, 255, 255);'>Picture of the Day</h2>" +
         "<img src='" + url + "' style='width: 13%; height: 13%; cursor: pointer; -webkit-user-drag: none; margin-right: 1%; margin-bottom: 1%;'>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + date + "</p>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + description + "</p>";
+        prompt.showModal();
     } else {
-        console.log("Open Not Succeeded");
-        let careerTextArea = document.getElementById("PicOfDayPrompt");
-        careerTextArea.innerHTML = "";
+        let prompt = document.getElementById("PicOfDayPrompt");
+        prompt.close(careerTextArea);
+        prompt.innerHTML = "";
     }
 }
 
@@ -111,6 +110,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
