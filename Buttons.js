@@ -32,7 +32,6 @@ function innerPage(pageName) {
     const div_ID = pageName + "_DIV";
     if (document.getElementById(div_ID) !== null) {
         let careerTextArea = document.getElementById(div_ID);
-        console.log("Fetched: " + pageName);
         fetch("./Pages/" + pageName + ".html")
         .then(response => response.text())
         .then(html => {
@@ -69,7 +68,6 @@ function myFunction(typ3) {
 
     // Open or Close Desired Menu
     if (x.style.display === "none") {
-        console.log("Clicked Button");
         x.style.display = "block";
     } else {
         x.style.display = "none";
@@ -112,6 +110,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
