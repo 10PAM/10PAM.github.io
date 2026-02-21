@@ -1,3 +1,9 @@
+// Author: Mario Aguilera Piceno
+// File: Buttons.js
+// Date: 
+// Last Modified: 02/20/2026
+
+// Attributes
 var previous_ID = null;
 var previous_ID_Project = null;
 
@@ -51,22 +57,27 @@ function myFunction(typ3) {
     }
   }
 
-  //Handle Project Buttons' Inputs
-  function myFunctionProject(typ3) {
+//Handle Project Buttons' Inputs
+function myFunctionProject(typ3) {
+
+    // Hide Previous Project
     if (previous_ID_Project !== null && typ3 !== previous_ID_Project)
     {
         var x_previous = document.getElementById(previous_ID_Project);
         x_previous.style.display = "none";
     }
-    
+
+    // Find Element
     var x = document.getElementById(typ3);
     previous_ID_Project = typ3;
+
+    // Show or Hide Desired Element
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
         x.style.display = "none";
     }
-  }
+}
 
 // Handle GoTo Top and Close Buttons
 function myFunctionTopClose(typ3) {
@@ -80,6 +91,7 @@ function myFunctionTopClose(typ3) {
 
 // Run Functions
 innerPage("Calendar");
+
 
 
 
