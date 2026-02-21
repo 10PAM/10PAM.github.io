@@ -6,17 +6,23 @@
 // Attributes
 var previous_ID = null;
 var previous_ID_Project = null;
+var previous_pic_elemID = null;
 
 // Picture of the Day Prompt
 function picOfDay(elemID, description, date, url) {
 
-    // Close if Already Open:
-    let prompt = document.getElementById(elemID);
-    prompt.style.display = "none";
-    prompt.innerHTML = "";
-
     // Open or Close
     if (description !== null && document.getElementById(elemID) !== null) {
+
+        // Close if Already Open:
+        if (previous_pic_elemID !== null) {
+            let prompt = document.getElementById(elemID);
+            prompt.style.display = "none";
+            prompt.innerHTML = "";
+            previous_pic_elemID = null;
+        }
+
+        // Open Element
         let prompt = document.getElementById(elemID);
         prompt.innerHTML = 
         "<hr>" +
@@ -31,10 +37,12 @@ function picOfDay(elemID, description, date, url) {
         behavior: 'smooth',
         block: 'start'
         });
+        
     } else if(document.getElementById(elemID) !== null) {
         let prompt = document.getElementById(elemID);
         prompt.style.display = "none";
         prompt.innerHTML = "";
+        previous_pic_ID = null;
     }
 }
 
@@ -122,6 +130,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
