@@ -7,9 +7,14 @@ function innerPage(pageName) {
     if (document.getElementById(pageName+"_DIV") !== null) {
         let careerTextArea = document.getElementById(pageName+"_DIV");
         let innerText = "";
-        fetch("./Pages/"+pageName+".html")
-        .then( data => innerText = data )
-        careerTextArea.innerHTML = innerText;
+        fetch("./Pages/" + pageName + ".html")
+        .then(response => response.text())
+        .then(html => {
+            careerTextArea.innerHTML = html;
+        })
+        .catch(error => {
+            console.error("Error loading page:", error);
+        });
     }
 }
 
@@ -67,4 +72,5 @@ function myFunctionTopClose(typ3) {
 
 // Run Functions
 innerPage("Calendar");
+
 
