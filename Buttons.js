@@ -24,7 +24,7 @@ function picOfDay(action, description, date, url, elemID) {
         "<img src='" + url + "' style='aspect-ratio: 1/1; width: 50%; height: 50%; -webkit-user-drag: none;'>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + date + "</p>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + description + "</p>" + 
-        "<button style='color: #ffffff; outline: none; background-color: rgba(119, 20, 20, 0); border-color: #ffffff; border-radius: 1%; text-align: center; font-size: 1vw; width: 80%; height: 5%;' id='Close' onclick=\"picOfDay('Close')\">Close</button>" + 
+        "<button style='color: #ffffff; outline: none; background-color: rgba(119, 20, 20, 0); border-color: #ffffff; border-radius: 1%; text-align: center; font-size: 1vw; width: 80%; height: 5%;' id='Close' onclick=\"picOfDay('" + elemID + "')\">Close</button>" + 
         "<hr>";
         prompt.style.display = "block";
         prompt.scrollIntoView({
@@ -32,7 +32,7 @@ function picOfDay(action, description, date, url, elemID) {
         block: 'start'
         });
     } else {
-        let prompt = document.getElementById(elemID);
+        let prompt = document.getElementById(action);
         prompt.style.display = "none";
         prompt.innerHTML = "";
     }
@@ -122,6 +122,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
