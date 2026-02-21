@@ -17,10 +17,10 @@ function picOfDay(action, description, date, url) {
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + date + "</p>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + description + "</p>" + 
         "<button style='color: #ffffff; outline: none; background-color: rgba(119, 20, 20, 0); border-color: #ffffff; border-radius: 1%; text-align: center;font-size: 1.6vw; width: 60%; height: 15%;' id='Close' onclick=\"picOfDay('Close')\">Close</button>";
-        prompt.showModal();
+        prompt.style.display = "block";
     } else {
         let prompt = document.getElementById("PicOfDayPrompt");
-        prompt.close();
+        prompt.style.display = "none";
         prompt.innerHTML = "";
     }
 }
@@ -109,6 +109,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
