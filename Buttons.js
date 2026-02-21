@@ -90,7 +90,11 @@ function myFunctionTopClose(typ3) {
 }
 
 // Run Functions
-innerPage("Calendar");
+document.addEventListener('DOMContentLoaded', function()
+{
+    innerPage("Calendar");
+}
+
 
 
 
