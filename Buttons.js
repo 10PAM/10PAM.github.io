@@ -27,6 +27,10 @@ function picOfDay(action, description, date, url, elemID) {
         "<button style='color: #ffffff; outline: none; background-color: rgba(119, 20, 20, 0); border-color: #ffffff; border-radius: 1%; text-align: center; font-size: 1vw; width: 80%; height: 5%;' id='Close' onclick=\"picOfDay('Close')\">Close</button>" + 
         "<hr>";
         prompt.style.display = "block";
+        prompt.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+        });
     } else {
         let prompt = document.getElementById(elemID);
         prompt.style.display = "none";
@@ -118,6 +122,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
