@@ -7,6 +7,21 @@
 var previous_ID = null;
 var previous_ID_Project = null;
 
+// Picture of the Day Prompt
+function picOfDay(action, description, date) {
+    if (action == "Open") {
+        let careerTextArea = document.getElementById("PicOfDayPrompt");
+        careerTextArea.innerHTML = "
+            <h2 style='font-size: 2.8vw; color: rgb(255, 255, 255);>Picture of the Day</h2>
+            <p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>date</p>
+            <p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>description</p>
+        ";
+    } else {
+        let careerTextArea = document.getElementById("PicOfDayPrompt");
+        careerTextArea.innerHTML = "";
+    }
+}
+
 // Insert Subpages
 function innerPage(pageName) {
     // Check Page; Insert HTML data if page exists
@@ -93,3 +108,4 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
