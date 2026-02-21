@@ -47,6 +47,7 @@ function myFunctionTopClose(typ3) {
     if (typ3 === "Top") {
         window.scrollTo({top: 0, behavior: 'smooth'});
     } else {
+        window.scrollTo({top: 0, behavior: 'smooth'});
         document.getElementById(typ3).style.display = "none";
     }
 }
