@@ -16,7 +16,6 @@ function picOfDay(action, description, date, url) {
         "<img src='" + url + "' style='width: 60%; height: 60%; cursor: pointer; -webkit-user-drag: none; margin-right: 1%; margin-bottom: 1%;'>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + date + "</p>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + description + "</p>" + 
-        "<div style='height: 60%'></div>" + 
         "<button style='color: #ffffff; outline: none; background-color: rgba(119, 20, 20, 0); border-color: #ffffff; border-radius: 1%; text-align: center;font-size: 1.6vw; width: 100%; height: 5%;' id='Close' onclick=\"picOfDay('Close')\">Close</button>";
         prompt.showModal();
     } else {
@@ -110,6 +109,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
