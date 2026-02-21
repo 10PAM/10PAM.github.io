@@ -15,7 +15,7 @@ function picOfDay(elemID, description, date, url) {
     if (description !== null && document.getElementById(elemID) !== null) {
 
         // Close if Already Open:
-        if (previous_pic_elemID !== null) {
+        if (previous_pic_elemID !== null && document.getElementById(previous_pic_elemID) !== null) {
             let prompt = document.getElementById(elemID);
             prompt.style.display = "none";
             prompt.innerHTML = "";
@@ -134,6 +134,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
