@@ -17,7 +17,7 @@ function picOfDay(action, description, date, url, elemID) {
 
     // Open or Close
     if (action == "Open") {
-        let prompt = document.getElementById("PicOfDayPrompt");
+        let prompt = document.getElementById(elemID);
         prompt.innerHTML = 
         "<hr>" +
         "<h2 style='font-size: 2.8vw; color: rgb(255, 255, 255);'>Picture of the Day</h2>" +
@@ -118,6 +118,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
