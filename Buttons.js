@@ -4,9 +4,8 @@ var previous_ID_Project = null;
 // Insert Subpages
 function innerPage(pageName) {
     // Check Page; Insert HTML data if page exists
-    if (document.getElementById(pageName+"_DIV") !== null) {
-        let careerTextArea = document.getElementById(pageName+"_DIV");
-        let innerText = "";
+    if (document.getElementById(pageName + "_DIV") !== null) {
+        let careerTextArea = document.getElementById(pageName + "_DIV");
         fetch("./Pages/" + pageName + ".html")
         .then(response => response.text())
         .then(html => {
@@ -72,8 +71,3 @@ function myFunctionTopClose(typ3) {
 
 // Run Functions
 innerPage("Calendar");
-
-
-
-
-
