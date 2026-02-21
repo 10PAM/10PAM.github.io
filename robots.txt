@@ -1,2 +1,2 @@
 User-agent: Googlebot-Image
-Disallow: /Images/Blog/
+Disallow: /Images/Calendar/
