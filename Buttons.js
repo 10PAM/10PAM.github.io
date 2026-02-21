@@ -16,7 +16,7 @@ function picOfDay(elemID, description, date, url) {
     prompt.innerHTML = "";
 
     // Open or Close
-    if (description !== null) {
+    if (description !== null && document.getElementById(elemID) !== null) {
         let prompt = document.getElementById(elemID);
         prompt.innerHTML = 
         "<hr>" +
@@ -31,7 +31,7 @@ function picOfDay(elemID, description, date, url) {
         behavior: 'smooth',
         block: 'start'
         });
-    } else {
+    } else if(document.getElementById(elemID) !== null) {
         let prompt = document.getElementById(elemID);
         prompt.style.display = "none";
         prompt.innerHTML = "";
@@ -122,6 +122,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
