@@ -41,6 +41,7 @@ function picOfDay(elemID, description, date, url) {
         });
         
     } else if(document.getElementById(elemID) !== null) {
+        console.log("Working on The Prompt?");
         let prompt = document.getElementById(elemID);
         prompt.style.display = "none";
         prompt.innerHTML = "";
@@ -132,6 +133,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
