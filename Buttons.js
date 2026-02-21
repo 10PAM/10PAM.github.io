@@ -22,6 +22,8 @@ function innerPage(pageName) {
 
 //Handle Menu Buttons' Inputs 
 function myFunction(typ3) {
+
+    // Hide Previous Open Menus
     if (previous_ID !== null && typ3 !== previous_ID)
     {
         var x_previous = document.getElementById(previous_ID);
@@ -35,10 +37,13 @@ function myFunction(typ3) {
         proj_previous.style.display = "none";
     }
 
+    // Obtain Desired Menu
     var x = document.getElementById(typ3);
     previous_ID = typ3;
 
+    // Open or Close Desired Menu
     if (x.style.display === "none") {
+        console.log("Clicked Button");
         x.style.display = "block";
     } else {
         x.style.display = "none";
@@ -56,9 +61,9 @@ function myFunction(typ3) {
     var x = document.getElementById(typ3);
     previous_ID_Project = typ3;
     if (x.style.display === "none") {
-      x.style.display = "block";
+        x.style.display = "block";
     } else {
-      x.style.display = "none";
+        x.style.display = "none";
     }
   }
 
@@ -74,4 +79,5 @@ function myFunctionTopClose(typ3) {
 
 // Run Functions
 innerPage("Calendar");
+
 
