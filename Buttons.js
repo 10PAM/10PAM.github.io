@@ -92,6 +92,12 @@ function myFunction(typ3) {
     // Open or Close Desired Menu
     if (x.style.display === "none") {
         x.style.display = "block";
+
+        // Scroll To View
+        x.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+        });
     } else {
         x.style.display = "none";
     }
@@ -114,6 +120,12 @@ function myFunctionProject(typ3) {
     // Show or Hide Desired Element
     if (x.style.display === "none") {
         x.style.display = "block";
+
+        // ScrollToView
+        x.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+        });
     } else {
         x.style.display = "none";
     }
@@ -133,6 +145,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
