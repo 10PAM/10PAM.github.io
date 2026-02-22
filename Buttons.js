@@ -42,7 +42,7 @@ function picOfDay(elemID, description, date, url, picNumber) {
         
         // Scrool to Calendar
         let calendar = document.getElementById(elemID+"_Cal");
-        prompt.scrollIntoView({
+        calendar.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
         });
@@ -133,6 +133,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
