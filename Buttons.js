@@ -9,7 +9,7 @@ var previous_ID_Project = null;
 var previous_pic_elemID = null;
 
 // Picture of the Day Prompt
-function picOfDay(elemID, description, date, url) {
+function picOfDay(elemID, description, date, url, picNumber) {
 
     // Open or Close
     if (description && document.getElementById(elemID) !== null) {
@@ -20,7 +20,7 @@ function picOfDay(elemID, description, date, url) {
         prompt.innerHTML = 
         "<div style='width: 100%; height: 100%; text-align: center;'>" + 
         "<hr>" +
-        "<h2 style='font-size: 2.8vw; color: rgb(255, 255, 255);'>Picture of the Day</h2>" +
+        "<h2 style='font-size: 2.8vw; color: rgb(255, 255, 255);'>Picture of the Day | #" + picNumber + "</h2>" +
         "<img onclick=\"window.open('" + url + "')\" src='" + url + "' style='cursor: pointer; aspect-ratio: 1/1; width: 50%; height: 50%; -webkit-user-drag: none;'>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + date + "</p>" +
         "<p style='font-size: 2.1vw; color: rgb(255, 255, 255);'>" + description + "</p>" + 
@@ -126,6 +126,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
