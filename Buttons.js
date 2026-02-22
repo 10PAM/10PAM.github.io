@@ -14,7 +14,7 @@ function picOfDay(elemID, description, date, url, picNumber) {
     // Open or Close
     if (description && document.getElementById(elemID) !== null) {
 
-        // Open Element
+        // Open Current Pic of Day
         previous_pic_elemID = elemID;
         let prompt = document.getElementById(elemID);
         prompt.innerHTML = 
@@ -27,18 +27,25 @@ function picOfDay(elemID, description, date, url, picNumber) {
         "<button style='color: #ffffff; outline: none; background-color: rgba(119, 20, 20, 0); border-color: #ffffff; border-radius: 1%; text-align: center; font-size: 1vw; width: 80%; height: 5%;' id='Close' onclick=\"picOfDay('" + elemID + "')\">Close</button>" + 
         "<hr>" +
         "</div>";
-        console.log("Trying to Open?");
         prompt.style.display = "block";
         prompt.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
         });
     } else if(document.getElementById(elemID) !== null) {
-        console.log("Working on The Prompt?");
+
+        // Close Current Pic of Day
         let prompt = document.getElementById(elemID);
         prompt.style.display = "none";
         prompt.innerHTML = "";
         previous_pic_ID = null;
+        
+        // Scrool to Calendar
+        let calendar = document.getElementById(elemID+"_Cal");
+        prompt.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+        });
     }
 }
 
@@ -126,6 +133,7 @@ function myFunctionTopClose(typ3) {
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
 });
+
 
 
 
