@@ -92,13 +92,6 @@ function myFunction(typ3) {
     // Open or Close Desired Menu
     if (x.style.display === "none") {
         x.style.display = "block";
-
-        /* Scroll To View
-        x.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-        });
-        */
     } else {
         x.style.display = "none";
     }
@@ -121,13 +114,6 @@ function myFunctionProject(typ3) {
     // Show or Hide Desired Element
     if (x.style.display === "none") {
         x.style.display = "block";
-
-        /* ScrollToView
-        x.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-        });
-        */
     } else {
         x.style.display = "none";
     }
@@ -149,14 +135,13 @@ document.addEventListener('DOMContentLoaded', function() {
     innerPage("PDF-Dark-Mode");
 });
 
-//  Dark Mode App:
-// Worker for PDF-Dark-Mode
+// Dark Mode App:
 let modifiedPdfBytes;
 let originalPdfData = null;
 let originalFileName = "";
 let currentRenderId = 0;
-// Theme definitions
 
+// Theme definitions
 const themes = {
     classic: {
         r: 0,
@@ -196,11 +181,13 @@ const themes = {
     }
 };
 
+// Retrieve PDF JS's
 const pdfJsSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js";
 const pdfWorkerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
 const pdfLibSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.11.0/pdf-lib.min.js";
 let pdfLibReadyPromise = null;
 
+// Load Libraries
 function loadPdfLibraries() {
     if (pdfLibReadyPromise) return pdfLibReadyPromise;
     pdfLibReadyPromise = new Promise((resolve, reject) => {
