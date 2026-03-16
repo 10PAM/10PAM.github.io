@@ -55,7 +55,7 @@ function innerPage(pageName) {
     const div_ID = pageName + "_DIV";
     if (document.getElementById(div_ID) !== null) {
         let careerTextArea = document.getElementById(div_ID);
-        fetch("./Pages/Projects/" + pageName + "index.html")
+        fetch("./Pages/Projects/" + pageName + "/index.html")
         .then(response => response.text())
         .then(html => {
             careerTextArea.innerHTML = html;
