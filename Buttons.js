@@ -143,342 +143,338 @@ function myFunctionTopClose(typ3) {
     }
 }
 
-// Pdf-Dark-Mode-App
-async function darkModeInitialize() {
-    // Worker for PDF-Dark-Mode
-    let modifiedPdfBytes;
-    let originalPdfData = null;
-    let originalFileName = "";
-    let currentRenderId = 0;
-    // Theme definitions
-    
-    const themes = {
-        classic: {
-            r: 0,
-            g: 0,
-            b: 0,
-            name: 'Classic'
-        },
-        claude: {
-            r: 42,
-            g: 37,
-            b: 34,
-            name: 'Claude Warm'
-        },
-        chatgpt: {
-            r: 52,
-            g: 53,
-            b: 65,
-            name: 'ChatGPT Cool'
-        },
-        sepia: {
-            r: 40,
-            g: 35,
-            b: 25,
-            name: 'Sepia'
-        },
-        midnight: {
-            r: 25,
-            g: 30,
-            b: 45,
-            name: 'Midnight Blue'
-        },
-        forest: {
-            r: 25,
-            g: 35,
-            b: 30,
-            name: 'Forest Green'
-        }
-    };
-    
-    const pdfJsSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js";
-    const pdfWorkerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
-    const pdfLibSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.11.0/pdf-lib.min.js";
-    let pdfLibReadyPromise = null;
-    
-    function loadPdfLibraries() {
-        if (pdfLibReadyPromise) return pdfLibReadyPromise;
-        pdfLibReadyPromise = new Promise((resolve, reject) => {
-            const pdfJsScript = document.createElement('script');
-            pdfJsScript.src = pdfJsSrc;
-            pdfJsScript.crossOrigin = 'anonymous';
-            pdfJsScript.referrerPolicy = 'no-referrer';
-            pdfJsScript.onload = () => {
-                pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerSrc;
-                const pdfLibScript = document.createElement('script');
-                pdfLibScript.src = pdfLibSrc;
-                pdfLibScript.crossOrigin = 'anonymous';
-                pdfLibScript.referrerPolicy = 'no-referrer';
-                pdfLibScript.onload = () => resolve();
-                pdfLibScript.onerror = reject;
-                document.head.appendChild(pdfLibScript);
-            };
-            pdfJsScript.onerror = reject;
-            document.head.appendChild(pdfJsScript);
-        });
-        return pdfLibReadyPromise;
-    }
-    
-    async function ensurePdfLibraries() {
-        try {
-            await loadPdfLibraries();
-        } catch (e) {
-            alert("Unable to load PDF libraries. Please check your connection and try again.");
-            throw e;
-        }
-    }
-
-    // Apply Theme
-    function applyThemeBackground(theme) {
-        document.body.style.backgroundColor = `rgb(${theme.r}, ${theme.g}, ${theme.b})`;
-    }
-    const selector = document.getElementById('themeSelector');
-    if (selector) {
-        applyThemeBackground(themes[selector.value]);
-    }
-
-    // Handle PDF File
-    function handleFile(file) {
-        originalFileName = file.name.replace(/\.pdf$/i, '');
-        const fileReader = new FileReader();
-        fileReader.onload = async function() {
-            const fileData = new Uint8Array(this.result);
-            await ensurePdfLibraries();
-            originalPdfData = fileData;
-            const progressContainer = document.getElementById('progressContainer');
-            progressContainer.style.display = 'block';
-            document.getElementById('downloadBtn').style.display = 'none';
-            await renderPDF(fileData);
-        };
-        fileReader.readAsArrayBuffer(file);
-    }
-    
-    //document.getElementById('fileInput').addEventListener('change', function(event) {
-    //    if (event.target.files.length > 0) {
-    //        handleFile(event.target.files[0]);
-    //    }
-    //});
-    function handleFileInputChange(event) {
-        if (event.target.files.length > 0) {
-            handleFile(event.target.files[0]);
-        }
-    }
-    
-    document.body.addEventListener('dragover', function(event) {
-        event.preventDefault();
-    });
-    
-    document.body.addEventListener('drop', function(event) {
-        event.preventDefault();
-        if (event.dataTransfer.files.length > 0) {
-            handleFile(event.dataTransfer.files[0]);
-        }
-    });
-    
-    async function changeTheme() {
-        const selectedTheme = document.getElementById('themeSelector').value;
-        applyThemeBackground(themes[selectedTheme]);
-        if (originalPdfData) {
-            await ensurePdfLibraries();
-            const progressContainer = document.getElementById('progressContainer');
-            progressContainer.style.display = 'block';
-            document.getElementById('downloadBtn').style.display = 'none';
-            await renderPDF(originalPdfData);
-        }
-    }
-    
-    //document.querySelector('.custom-file-upload').addEventListener('click', () => {
-    ///    loadPdfLibraries().catch(() => {});
-    //});
-    
-    async function handleFileUploadClick() {
-        try {
-            await loadPdfLibraries();
-        } catch (e) {
-            // ignore errors
-        }
-    }
-    
-    async function renderPDF(pdfData) {
-        const renderId = ++currentRenderId;
-        const selectedTheme = document.getElementById('themeSelector').value;
-        const theme = themes[selectedTheme];
-        applyThemeBackground(theme);
-    
-        // Initialize PDF document later or in chunks
-        const pdf = await pdfjsLib.getDocument({
-            data: pdfData
-        }).promise;
-        const progressBar = document.getElementById('progressBar');
-        const progressText = document.getElementById('progressText');
-        const pdfContainer = document.getElementById('pdfContainer');
-        const progressContainer = document.getElementById('progressContainer');
-        modifiedPdfBytes = null;
-        progressBar.style.width = '0';
-        progressText.innerText = `0/${pdf.numPages}`;
-        pdfContainer.innerHTML = '';
-    
-        const CHUNK_SIZE = 50; // Process 50 pages at a time to save memory
-        const chunks = [];
-        const totalPages = pdf.numPages;
-    
-        for (let chunkStart = 0; chunkStart < totalPages; chunkStart += CHUNK_SIZE) {
-            if (renderId !== currentRenderId) return;
-    
-            // Create a temporary document for this chunk
-            const chunkDoc = await PDFLib.PDFDocument.create();
-            const chunkEnd = Math.min(chunkStart + CHUNK_SIZE, totalPages);
-    
-            for (let i = chunkStart; i < chunkEnd; i++) {
-                if (renderId !== currentRenderId) return;
-    
-                // Update progress
-                const percent = ((i + 1) / totalPages) * 100;
-                progressBar.style.width = `${percent}%`;
-                progressText.innerText = `${i + 1}/${totalPages}`;
-    
-                const page = await pdf.getPage(i + 1);
-                // 3: Heavy; 2: Good Quality; 1.5: Fase;
-                const scale = window.devicePixelRatio > 1 ? 2 : 1.5;
-                const viewport = page.getViewport({
-                    scale
-                });
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-    
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
-                canvas.style.border = "1px solid white";
-                canvas.style.marginTop = "10px";
-    
-                const renderContext = {
-                    canvasContext: ctx,
-                    viewport: viewport
-                };
-                await page.render(renderContext).promise;
-    
-                if (renderId !== currentRenderId) return;
-    
-                // Apply dark mode effect
-                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                const data = imageData.data;
-    
-                const bgR = theme.r;
-                const bgG = theme.g;
-                const bgB = theme.b;
-    
-                for (let j = 0; j < data.length; j += 4) {
-                    const r = data[j];
-                    const g = data[j + 1];
-                    const b = data[j + 2];
-    
-                    // Calculate brightness (0-255)
-                    const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
-    
-                    // Map white (255) to background color, black (0) to white
-                    const factor = 1 - (brightness / 255);
-    
-                    data[j] = bgR + (255 - bgR) * factor; // Red
-                    data[j + 1] = bgG + (255 - bgG) * factor; // Green
-                    data[j + 2] = bgB + (255 - bgB) * factor; // Blue
-                }
-                ctx.putImageData(imageData, 0, 0);
-    
-                if (renderId !== currentRenderId) return;
-    
-                // Display preview for the first 20 pages only
-                if (i < 20) {
-                    canvas.style.maxWidth = '100%';
-                    canvas.style.height = 'auto';
-                    pdfContainer.appendChild(canvas);
-                }
-    
-                // Convert modified canvas to PNG and add to PDF
-                if (renderId !== currentRenderId) return;
-    
-                const imgBytes = await new Promise(resolve => canvas.toBlob(blob => blob.arrayBuffer().then(resolve), 'image/png'));
-    
-                if (renderId !== currentRenderId) return;
-    
-                const jpgImage = await chunkDoc.embedPng(imgBytes);
-                const newPage = chunkDoc.addPage([viewport.width, viewport.height]);
-                newPage.drawImage(jpgImage, {
-                    x: 0,
-                    y: 0,
-                    width: viewport.width,
-                    height: viewport.height
-                });
-    
-                // Explicitly clear canvas references to help GC
-                // Only clear if we are NOT showing this canvas in the preview
-                if (i >= 20) {
-                    canvas.width = 1;
-                    canvas.height = 1;
-                    ctx.clearRect(0, 0, 1, 1);
-                }
-    
-                // Release page resources
-                page.cleanup();
-            }
-    
-            // Save chunk to bytes and release chunkDoc
-            if (renderId !== currentRenderId) return;
-            const chunkBytes = await chunkDoc.save();
-            chunks.push(chunkBytes);
-    
-            // Optional: small delay to allow UI update and GC
-            await new Promise(resolve => setTimeout(resolve, 10));
-        }
-    
-        if (renderId !== currentRenderId) return;
-    
-        progressText.innerText = "Merging PDF chunks... This may take a moment.";
-    
-        // Merge all chunks into final document
-        const finalPdfDoc = await PDFLib.PDFDocument.create();
-        for (let i = 0; i < chunks.length; i++) {
-            if (renderId !== currentRenderId) return;
-            const chunkBytes = chunks[i];
-            const chunkDoc = await PDFLib.PDFDocument.load(chunkBytes);
-            const copiedPages = await finalPdfDoc.copyPages(chunkDoc, chunkDoc.getPageIndices());
-            copiedPages.forEach(page => finalPdfDoc.addPage(page));
-    
-            // Release chunk memory
-            chunks[i] = null;
-        }
-    
-        progressText.innerText = "Finalizing...";
-        modifiedPdfBytes = await finalPdfDoc.save();
-    
-        if (renderId !== currentRenderId) return;
-    
-        progressContainer.style.display = 'none';
-        triggerDownload();
-    }
-    
-    function triggerDownload() {
-        if (modifiedPdfBytes) {
-            const selectedTheme = document.getElementById('themeSelector').value;
-            const themeName = themes[selectedTheme].name.toLowerCase().replace(/\s+/g, '_');
-            const blob = new Blob([modifiedPdfBytes], {
-                type: 'application/pdf'
-            });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = `${originalFileName}_${themeName}_dark.pdf`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-    
-            document.getElementById('downloadBtn').style.display = 'block';
-        }
-    }
-    
-}
-
 // Run Functions
 document.addEventListener('DOMContentLoaded', function() {
     innerPage("Calendar");
     innerPage("PDF-Dark-Mode");
-    darkModeInitialize();
 });
+
+//  Dark Mode App:
+// Worker for PDF-Dark-Mode
+let modifiedPdfBytes;
+let originalPdfData = null;
+let originalFileName = "";
+let currentRenderId = 0;
+// Theme definitions
+
+const themes = {
+    classic: {
+        r: 0,
+        g: 0,
+        b: 0,
+        name: 'Classic'
+    },
+    claude: {
+        r: 42,
+        g: 37,
+        b: 34,
+        name: 'Claude Warm'
+    },
+    chatgpt: {
+        r: 52,
+        g: 53,
+        b: 65,
+        name: 'ChatGPT Cool'
+    },
+    sepia: {
+        r: 40,
+        g: 35,
+        b: 25,
+        name: 'Sepia'
+    },
+    midnight: {
+        r: 25,
+        g: 30,
+        b: 45,
+        name: 'Midnight Blue'
+    },
+    forest: {
+        r: 25,
+        g: 35,
+        b: 30,
+        name: 'Forest Green'
+    }
+};
+
+const pdfJsSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js";
+const pdfWorkerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+const pdfLibSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.11.0/pdf-lib.min.js";
+let pdfLibReadyPromise = null;
+
+function loadPdfLibraries() {
+    if (pdfLibReadyPromise) return pdfLibReadyPromise;
+    pdfLibReadyPromise = new Promise((resolve, reject) => {
+        const pdfJsScript = document.createElement('script');
+        pdfJsScript.src = pdfJsSrc;
+        pdfJsScript.crossOrigin = 'anonymous';
+        pdfJsScript.referrerPolicy = 'no-referrer';
+        pdfJsScript.onload = () => {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerSrc;
+            const pdfLibScript = document.createElement('script');
+            pdfLibScript.src = pdfLibSrc;
+            pdfLibScript.crossOrigin = 'anonymous';
+            pdfLibScript.referrerPolicy = 'no-referrer';
+            pdfLibScript.onload = () => resolve();
+            pdfLibScript.onerror = reject;
+            document.head.appendChild(pdfLibScript);
+        };
+        pdfJsScript.onerror = reject;
+        document.head.appendChild(pdfJsScript);
+    });
+    return pdfLibReadyPromise;
+}
+
+async function ensurePdfLibraries() {
+    try {
+        await loadPdfLibraries();
+    } catch (e) {
+        alert("Unable to load PDF libraries. Please check your connection and try again.");
+        throw e;
+    }
+}
+
+// Apply Theme
+function applyThemeBackground(theme) {
+    document.body.style.backgroundColor = `rgb(${theme.r}, ${theme.g}, ${theme.b})`;
+}
+const selector = document.getElementById('themeSelector');
+if (selector) {
+    applyThemeBackground(themes[selector.value]);
+}
+
+// Handle PDF File
+function handleFile(file) {
+    originalFileName = file.name.replace(/\.pdf$/i, '');
+    const fileReader = new FileReader();
+    fileReader.onload = async function() {
+        const fileData = new Uint8Array(this.result);
+        await ensurePdfLibraries();
+        originalPdfData = fileData;
+        const progressContainer = document.getElementById('progressContainer');
+        progressContainer.style.display = 'block';
+        document.getElementById('downloadBtn').style.display = 'none';
+        await renderPDF(fileData);
+    };
+    fileReader.readAsArrayBuffer(file);
+}
+
+//document.getElementById('fileInput').addEventListener('change', function(event) {
+//    if (event.target.files.length > 0) {
+//        handleFile(event.target.files[0]);
+//    }
+//});
+function handleFileInputChange(event) {
+    if (event.target.files.length > 0) {
+        handleFile(event.target.files[0]);
+    }
+}
+
+document.body.addEventListener('dragover', function(event) {
+    event.preventDefault();
+});
+
+document.body.addEventListener('drop', function(event) {
+    event.preventDefault();
+    if (event.dataTransfer.files.length > 0) {
+        handleFile(event.dataTransfer.files[0]);
+    }
+});
+
+async function changeTheme() {
+    const selectedTheme = document.getElementById('themeSelector').value;
+    applyThemeBackground(themes[selectedTheme]);
+    if (originalPdfData) {
+        await ensurePdfLibraries();
+        const progressContainer = document.getElementById('progressContainer');
+        progressContainer.style.display = 'block';
+        document.getElementById('downloadBtn').style.display = 'none';
+        await renderPDF(originalPdfData);
+    }
+}
+
+//document.querySelector('.custom-file-upload').addEventListener('click', () => {
+///    loadPdfLibraries().catch(() => {});
+//});
+
+async function handleFileUploadClick() {
+    try {
+        await loadPdfLibraries();
+    } catch (e) {
+        // ignore errors
+    }
+}
+
+async function renderPDF(pdfData) {
+    const renderId = ++currentRenderId;
+    const selectedTheme = document.getElementById('themeSelector').value;
+    const theme = themes[selectedTheme];
+    applyThemeBackground(theme);
+
+    // Initialize PDF document later or in chunks
+    const pdf = await pdfjsLib.getDocument({
+        data: pdfData
+    }).promise;
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    const pdfContainer = document.getElementById('pdfContainer');
+    const progressContainer = document.getElementById('progressContainer');
+    modifiedPdfBytes = null;
+    progressBar.style.width = '0';
+    progressText.innerText = `0/${pdf.numPages}`;
+    pdfContainer.innerHTML = '';
+
+    const CHUNK_SIZE = 50; // Process 50 pages at a time to save memory
+    const chunks = [];
+    const totalPages = pdf.numPages;
+
+    for (let chunkStart = 0; chunkStart < totalPages; chunkStart += CHUNK_SIZE) {
+        if (renderId !== currentRenderId) return;
+
+        // Create a temporary document for this chunk
+        const chunkDoc = await PDFLib.PDFDocument.create();
+        const chunkEnd = Math.min(chunkStart + CHUNK_SIZE, totalPages);
+
+        for (let i = chunkStart; i < chunkEnd; i++) {
+            if (renderId !== currentRenderId) return;
+
+            // Update progress
+            const percent = ((i + 1) / totalPages) * 100;
+            progressBar.style.width = `${percent}%`;
+            progressText.innerText = `${i + 1}/${totalPages}`;
+
+            const page = await pdf.getPage(i + 1);
+            // 3: Heavy; 2: Good Quality; 1.5: Fase;
+            const scale = window.devicePixelRatio > 1 ? 2 : 1.5;
+            const viewport = page.getViewport({
+                scale
+            });
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            canvas.style.border = "1px solid white";
+            canvas.style.marginTop = "10px";
+
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            await page.render(renderContext).promise;
+
+            if (renderId !== currentRenderId) return;
+
+            // Apply dark mode effect
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imageData.data;
+
+            const bgR = theme.r;
+            const bgG = theme.g;
+            const bgB = theme.b;
+
+            for (let j = 0; j < data.length; j += 4) {
+                const r = data[j];
+                const g = data[j + 1];
+                const b = data[j + 2];
+
+                // Calculate brightness (0-255)
+                const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
+
+                // Map white (255) to background color, black (0) to white
+                const factor = 1 - (brightness / 255);
+
+                data[j] = bgR + (255 - bgR) * factor; // Red
+                data[j + 1] = bgG + (255 - bgG) * factor; // Green
+                data[j + 2] = bgB + (255 - bgB) * factor; // Blue
+            }
+            ctx.putImageData(imageData, 0, 0);
+
+            if (renderId !== currentRenderId) return;
+
+            // Display preview for the first 20 pages only
+            if (i < 20) {
+                canvas.style.maxWidth = '100%';
+                canvas.style.height = 'auto';
+                pdfContainer.appendChild(canvas);
+            }
+
+            // Convert modified canvas to PNG and add to PDF
+            if (renderId !== currentRenderId) return;
+
+            const imgBytes = await new Promise(resolve => canvas.toBlob(blob => blob.arrayBuffer().then(resolve), 'image/png'));
+
+            if (renderId !== currentRenderId) return;
+
+            const jpgImage = await chunkDoc.embedPng(imgBytes);
+            const newPage = chunkDoc.addPage([viewport.width, viewport.height]);
+            newPage.drawImage(jpgImage, {
+                x: 0,
+                y: 0,
+                width: viewport.width,
+                height: viewport.height
+            });
+
+            // Explicitly clear canvas references to help GC
+            // Only clear if we are NOT showing this canvas in the preview
+            if (i >= 20) {
+                canvas.width = 1;
+                canvas.height = 1;
+                ctx.clearRect(0, 0, 1, 1);
+            }
+
+            // Release page resources
+            page.cleanup();
+        }
+
+        // Save chunk to bytes and release chunkDoc
+        if (renderId !== currentRenderId) return;
+        const chunkBytes = await chunkDoc.save();
+        chunks.push(chunkBytes);
+
+        // Optional: small delay to allow UI update and GC
+        await new Promise(resolve => setTimeout(resolve, 10));
+    }
+
+    if (renderId !== currentRenderId) return;
+
+    progressText.innerText = "Merging PDF chunks... This may take a moment.";
+
+    // Merge all chunks into final document
+    const finalPdfDoc = await PDFLib.PDFDocument.create();
+    for (let i = 0; i < chunks.length; i++) {
+        if (renderId !== currentRenderId) return;
+        const chunkBytes = chunks[i];
+        const chunkDoc = await PDFLib.PDFDocument.load(chunkBytes);
+        const copiedPages = await finalPdfDoc.copyPages(chunkDoc, chunkDoc.getPageIndices());
+        copiedPages.forEach(page => finalPdfDoc.addPage(page));
+
+        // Release chunk memory
+        chunks[i] = null;
+    }
+
+    progressText.innerText = "Finalizing...";
+    modifiedPdfBytes = await finalPdfDoc.save();
+
+    if (renderId !== currentRenderId) return;
+
+    progressContainer.style.display = 'none';
+    triggerDownload();
+}
+
+function triggerDownload() {
+    if (modifiedPdfBytes) {
+        const selectedTheme = document.getElementById('themeSelector').value;
+        const themeName = themes[selectedTheme].name.toLowerCase().replace(/\s+/g, '_');
+        const blob = new Blob([modifiedPdfBytes], {
+            type: 'application/pdf'
+        });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `${originalFileName}_${themeName}_dark.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        document.getElementById('downloadBtn').style.display = 'block';
+    }
+}
