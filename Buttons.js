@@ -145,7 +145,7 @@ function myFunctionTopClose(typ3) {
 
 // Run Functions
 document.addEventListener('DOMContentLoaded', function() {
-    innerPage("Calendar");
+    innerPage("Calendar/index");
 });
 
 
