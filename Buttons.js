@@ -296,44 +296,34 @@ async function renderPDF(pdfData) {
     const theme = themes[selectedTheme];
     applyThemeBackground(theme);
 
-    // Initialize PDF document later or in chunks
-    const pdf = await pdfjsLib.getDocument({
-        data: pdfData
-    }).promise;
+    const pdf = await pdfjsLib.getDocument({ data: pdfData }).promise;
+
     const progressBar = document.getElementById('progressBar');
     const progressText = document.getElementById('progressText');
     const pdfContainer = document.getElementById('pdfContainer');
     const progressContainer = document.getElementById('progressContainer');
+
     modifiedPdfBytes = null;
     progressBar.style.width = '0';
     progressText.innerText = `0/${pdf.numPages}`;
     pdfContainer.innerHTML = '';
 
-    const CHUNK_SIZE = 50; // Process 50 pages at a time to save memory
-    const chunks = [];
+    const CHUNK_SIZE = 50; // optional chunking for memory management
     const totalPages = pdf.numPages;
+    const chunks = [];
 
     for (let chunkStart = 0; chunkStart < totalPages; chunkStart += CHUNK_SIZE) {
         if (renderId !== currentRenderId) return;
 
-        // Create a temporary document for this chunk
         const chunkDoc = await PDFLib.PDFDocument.create();
         const chunkEnd = Math.min(chunkStart + CHUNK_SIZE, totalPages);
 
         for (let i = chunkStart; i < chunkEnd; i++) {
             if (renderId !== currentRenderId) return;
 
-            // Update progress
-            const percent = ((i + 1) / totalPages) * 100;
-            progressBar.style.width = `${percent}%`;
-            progressText.innerText = `${i + 1}/${totalPages}`;
-
             const page = await pdf.getPage(i + 1);
-            // 3: Heavy; 2: Good Quality; 1.5: Fase;
             const scale = window.devicePixelRatio > 1 ? 2 : 1.5;
-            const viewport = page.getViewport({
-                scale
-            });
+            const viewport = page.getViewport({ scale });
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
 
@@ -342,18 +332,11 @@ async function renderPDF(pdfData) {
             canvas.style.border = "1px solid white";
             canvas.style.marginTop = "10px";
 
-            const renderContext = {
-                canvasContext: ctx,
-                viewport: viewport
-            };
-            await page.render(renderContext).promise;
+            await page.render({ canvasContext: ctx, viewport }).promise;
 
-            if (renderId !== currentRenderId) return;
-
-            // Apply dark mode effect
+            // Apply dark mode pixel-wise to all pages
             const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             const data = imageData.data;
-
             const bgR = theme.r;
             const bgG = theme.g;
             const bgB = theme.b;
@@ -362,34 +345,24 @@ async function renderPDF(pdfData) {
                 const r = data[j];
                 const g = data[j + 1];
                 const b = data[j + 2];
-
-                // Calculate brightness (0-255)
                 const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
-
-                // Map white (255) to background color, black (0) to white
                 const factor = 1 - (brightness / 255);
 
-                data[j] = bgR + (255 - bgR) * factor; // Red
-                data[j + 1] = bgG + (255 - bgG) * factor; // Green
-                data[j + 2] = bgB + (255 - bgB) * factor; // Blue
+                data[j]     = bgR + (255 - bgR) * factor;
+                data[j + 1] = bgG + (255 - bgG) * factor;
+                data[j + 2] = bgB + (255 - bgB) * factor;
             }
             ctx.putImageData(imageData, 0, 0);
 
-            if (renderId !== currentRenderId) return;
+            // Append **all pages** to DOM
+            canvas.style.maxWidth = '100%';
+            canvas.style.height = 'auto';
+            pdfContainer.appendChild(canvas);
 
-            // Display preview for the first 20 pages only
-            if (i < 20) {
-                canvas.style.maxWidth = '100%';
-                canvas.style.height = 'auto';
-                pdfContainer.appendChild(canvas);
-            }
-
-            // Convert modified canvas to PNG and add to PDF
-            if (renderId !== currentRenderId) return;
-
-            const imgBytes = await new Promise(resolve => canvas.toBlob(blob => blob.arrayBuffer().then(resolve), 'image/png'));
-
-            if (renderId !== currentRenderId) return;
+            // Convert canvas to PNG for PDF
+            const imgBytes = await new Promise(resolve =>
+                canvas.toBlob(blob => blob.arrayBuffer().then(resolve), 'image/png')
+            );
 
             const jpgImage = await chunkDoc.embedPng(imgBytes);
             const newPage = chunkDoc.addPage([viewport.width, viewport.height]);
@@ -400,26 +373,37 @@ async function renderPDF(pdfData) {
                 height: viewport.height
             });
 
-            // Explicitly clear canvas references to help GC
-            // Only clear if we are NOT showing this canvas in the preview
-            if (i >= 20) {
-                canvas.width = 1;
-                canvas.height = 1;
-                ctx.clearRect(0, 0, 1, 1);
-            }
-
-            // Release page resources
             page.cleanup();
+
+            // Update progress
+            const percent = ((i + 1) / totalPages) * 100;
+            progressBar.style.width = `${percent}%`;
+            progressText.innerText = `${i + 1}/${totalPages}`;
         }
 
-        // Save chunk to bytes and release chunkDoc
-        if (renderId !== currentRenderId) return;
         const chunkBytes = await chunkDoc.save();
         chunks.push(chunkBytes);
-
-        // Optional: small delay to allow UI update and GC
-        await new Promise(resolve => setTimeout(resolve, 10));
     }
+
+    progressText.innerText = "Merging PDF chunks...";
+
+    // Merge all chunks into final PDF
+    const finalPdfDoc = await PDFLib.PDFDocument.create();
+    for (let i = 0; i < chunks.length; i++) {
+        if (renderId !== currentRenderId) return;
+        const chunkDoc = await PDFLib.PDFDocument.load(chunks[i]);
+        const copiedPages = await finalPdfDoc.copyPages(chunkDoc, chunkDoc.getPageIndices());
+        copiedPages.forEach(page => finalPdfDoc.addPage(page));
+        chunks[i] = null;
+    }
+
+    progressText.innerText = "Finalizing...";
+    modifiedPdfBytes = await finalPdfDoc.save();
+
+    if (renderId !== currentRenderId) return;
+    progressContainer.style.display = 'none';
+    triggerDownload();
+}
 
     if (renderId !== currentRenderId) return;
 
