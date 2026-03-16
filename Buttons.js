@@ -151,13 +151,6 @@ async function darkModeInitialize() {
     let originalFileName = "";
     let currentRenderId = 0;
     // Theme definitions
-    let themeSelector;
-    try {
-        themeSelector = await waitForElement('#themeSelector');
-    } catch (err) {
-        console.error(err);
-        return; // Exit if the element never appears
-    }
     
     const themes = {
         classic: {
@@ -277,7 +270,7 @@ async function darkModeInitialize() {
         }
     });
     
-    document.getElementById('themeSelector').addEventListener('change', async function() {
+    async function changeTheme() {
         const selectedTheme = document.getElementById('themeSelector').value;
         applyThemeBackground(themes[selectedTheme]);
         if (originalPdfData) {
@@ -289,9 +282,17 @@ async function darkModeInitialize() {
         }
     });
     
-    document.querySelector('.custom-file-upload').addEventListener('click', () => {
-        loadPdfLibraries().catch(() => {});
-    });
+    //document.querySelector('.custom-file-upload').addEventListener('click', () => {
+    ///    loadPdfLibraries().catch(() => {});
+    //});
+    
+    async function handleFileUploadClick() {
+        try {
+            await loadPdfLibraries();
+        } catch (e) {
+            // ignore errors
+        }
+    }
     
     async function renderPDF(pdfData) {
         const renderId = ++currentRenderId;
@@ -468,7 +469,6 @@ async function darkModeInitialize() {
         }
     }
     
-    document.getElementById('downloadBtn').addEventListener('click', triggerDownload);
 }
 
 // Run Functions
