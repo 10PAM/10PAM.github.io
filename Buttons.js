@@ -405,32 +405,6 @@ async function renderPDF(pdfData) {
     triggerDownload();
 }
 
-    if (renderId !== currentRenderId) return;
-
-    progressText.innerText = "Merging PDF chunks... This may take a moment.";
-
-    // Merge all chunks into final document
-    const finalPdfDoc = await PDFLib.PDFDocument.create();
-    for (let i = 0; i < chunks.length; i++) {
-        if (renderId !== currentRenderId) return;
-        const chunkBytes = chunks[i];
-        const chunkDoc = await PDFLib.PDFDocument.load(chunkBytes);
-        const copiedPages = await finalPdfDoc.copyPages(chunkDoc, chunkDoc.getPageIndices());
-        copiedPages.forEach(page => finalPdfDoc.addPage(page));
-
-        // Release chunk memory
-        chunks[i] = null;
-    }
-
-    progressText.innerText = "Finalizing...";
-    modifiedPdfBytes = await finalPdfDoc.save();
-
-    if (renderId !== currentRenderId) return;
-
-    progressContainer.style.display = 'none';
-    triggerDownload();
-}
-
 function triggerDownload() {
     if (modifiedPdfBytes) {
         const selectedTheme = document.getElementById('themeSelector').value;
