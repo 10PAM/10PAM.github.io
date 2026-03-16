@@ -269,16 +269,16 @@ function handleFileInputChange(event) {
     }
 }
 
-document.body.addEventListener('dragover', function(event) {
+function handleDragOver(event) {
     event.preventDefault();
-});
+}
 
-document.body.addEventListener('drop', function(event) {
-    event.preventDefault();
+function handleDrop(event) {
+    event.preventDefault(); // Prevent default browser behavior
     if (event.dataTransfer.files.length > 0) {
-        handleFile(event.dataTransfer.files[0]);
+        handleFile(event.dataTransfer.files[0]); // Your existing file handler
     }
-});
+}
 
 async function changeTheme() {
     const selectedTheme = document.getElementById('themeSelector').value;
