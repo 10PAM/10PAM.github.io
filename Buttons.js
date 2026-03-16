@@ -389,8 +389,9 @@ async function renderPDF(pdfData) {
             // Convert modified canvas to PNG and add to PDF
             if (renderId !== currentRenderId) return;
 
-            const imgBytes = await new Promise(resolve => canvas.toBlob(blob => blob.arrayBuffer().then(resolve), 'image/png'));
-
+            //const imgBytes = await new Promise(resolve => canvas.toBlob(blob => blob.arrayBuffer().then(resolve), 'image/png'));
+            const imgBytes = await canvas.convertToBlob('image/jpeg', 0.8);
+            
             if (renderId !== currentRenderId) return;
 
             const jpgImage = await chunkDoc.embedPng(imgBytes);
