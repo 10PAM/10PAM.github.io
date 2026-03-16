@@ -253,11 +253,16 @@ async function darkModeInitialize() {
         fileReader.readAsArrayBuffer(file);
     }
     
-    document.getElementById('fileInput').addEventListener('change', function(event) {
+    //document.getElementById('fileInput').addEventListener('change', function(event) {
+    //    if (event.target.files.length > 0) {
+    //        handleFile(event.target.files[0]);
+    //    }
+    //});
+    function handleFileInputChange(event) {
         if (event.target.files.length > 0) {
             handleFile(event.target.files[0]);
         }
-    });
+    }
     
     document.body.addEventListener('dragover', function(event) {
         event.preventDefault();
