@@ -12,7 +12,7 @@
             <option value="forest">Forest Green</option>
         </select>
     </div>
-    <input type="file" id="fileInput" class="file-input" style="display: none;" accept="application/pdf">
+    <input onchange="handleFileInputChange(event)" type="file" id="fileInput" class="file-input" style="display: none;" accept="application/pdf">
     <div id="progressContainer" aria-live="polite" style="width: 80%; max-width: 400px; background-color: #222; display: none; padding: 10px; border-radius: 5px; margin: 20px auto; text-align: center;">
         <div id="progressBar" style="height: 20px; background-color: #0056d2; width: 0; text-align: center; line-height: 20px; color: #ffffff; border-radius: 5px; transition: width 0.3s ease-in-out;"></div>
         <div id="progressText" style="margin-top: 5px; color: white; font-weight: bold;">0/0</div>
