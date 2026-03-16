@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Dark Mode App:
-let modifiedPdfBytes;
+//let modifiedPdfBytes;
 let originalPdfData = null;
 let originalFileName = "";
 let currentRenderId = 0;
@@ -696,23 +696,6 @@ async function renderPDF(pdfData) {
     triggerDownload();
 }
 
-function triggerDownload() {
-    if (modifiedPdfBytes) {
-        const selectedTheme = document.getElementById('themeSelector').value;
-        const themeName = themes[selectedTheme].name.toLowerCase().replace(/\s+/g, '_');
-        const blob = new Blob([modifiedPdfBytes], {
-            type: 'application/pdf'
-        });
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = `${originalFileName}_${themeName}_dark.pdf`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        document.getElementById('downloadBtn').style.display = 'block';
-    }
-}
 function triggerDownload() {
     if (modifiedPdfBytes) {
         const selectedTheme = document.getElementById('themeSelector').value;
