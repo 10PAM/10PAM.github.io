@@ -297,6 +297,7 @@ async function renderPDF(pdfData) {
     applyThemeBackground(theme);
 
     const pdf = await pdfjsLib.getDocument({ data: pdfData }).promise;
+    const totalPages = pdf.numPages;
 
     const progressBar = document.getElementById('progressBar');
     const progressText = document.getElementById('progressText');
@@ -305,96 +306,81 @@ async function renderPDF(pdfData) {
 
     modifiedPdfBytes = null;
     progressBar.style.width = '0';
-    progressText.innerText = `0/${pdf.numPages}`;
+    progressText.innerText = `0/${totalPages}`;
     pdfContainer.innerHTML = '';
 
-    const CHUNK_SIZE = 50; // optional chunking for memory management
-    const totalPages = pdf.numPages;
-    const chunks = [];
+    const CHUNK_SIZE = 20; // Number of pages processed in parallel
+    const allPageImages = [];
 
     for (let chunkStart = 0; chunkStart < totalPages; chunkStart += CHUNK_SIZE) {
         if (renderId !== currentRenderId) return;
 
-        const chunkDoc = await PDFLib.PDFDocument.create();
         const chunkEnd = Math.min(chunkStart + CHUNK_SIZE, totalPages);
+        const pagePromises = [];
 
+        // Render pages in parallel
         for (let i = chunkStart; i < chunkEnd; i++) {
-            if (renderId !== currentRenderId) return;
+            pagePromises.push((async () => {
+                const page = await pdf.getPage(i + 1);
+                const scale = window.devicePixelRatio > 1 ? 2 : 1.5;
+                const viewport = page.getViewport({ scale });
 
-            const page = await pdf.getPage(i + 1);
-            const scale = window.devicePixelRatio > 1 ? 2 : 1.5;
-            const viewport = page.getViewport({ scale });
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
 
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
-            canvas.style.border = "1px solid white";
-            canvas.style.marginTop = "10px";
+                await page.render({ canvasContext: ctx, viewport }).promise;
 
-            await page.render({ canvasContext: ctx, viewport }).promise;
+                // Apply dark mode
+                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                const data = imageData.data;
+                const bgR = theme.r, bgG = theme.g, bgB = theme.b;
+                for (let j = 0; j < data.length; j += 4) {
+                    const r = data[j], g = data[j + 1], b = data[j + 2];
+                    const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
+                    const factor = 1 - (brightness / 255);
+                    data[j] = bgR + (255 - bgR) * factor;
+                    data[j + 1] = bgG + (255 - bgG) * factor;
+                    data[j + 2] = bgB + (255 - bgB) * factor;
+                }
+                ctx.putImageData(imageData, 0, 0);
 
-            // Apply dark mode pixel-wise to all pages
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const data = imageData.data;
-            const bgR = theme.r;
-            const bgG = theme.g;
-            const bgB = theme.b;
+                // Append to DOM
+                canvas.style.maxWidth = '100%';
+                canvas.style.height = 'auto';
+                canvas.style.marginTop = '10px';
+                canvas.style.border = '1px solid white';
+                pdfContainer.appendChild(canvas);
 
-            for (let j = 0; j < data.length; j += 4) {
-                const r = data[j];
-                const g = data[j + 1];
-                const b = data[j + 2];
-                const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
-                const factor = 1 - (brightness / 255);
+                // Convert canvas to PNG for PDF
+                const imgBytes = await new Promise(resolve =>
+                    canvas.toBlob(blob => blob.arrayBuffer().then(resolve), 'image/png')
+                );
 
-                data[j]     = bgR + (255 - bgR) * factor;
-                data[j + 1] = bgG + (255 - bgG) * factor;
-                data[j + 2] = bgB + (255 - bgB) * factor;
-            }
-            ctx.putImageData(imageData, 0, 0);
+                page.cleanup();
 
-            // Append **all pages** to DOM
-            canvas.style.maxWidth = '100%';
-            canvas.style.height = 'auto';
-            pdfContainer.appendChild(canvas);
+                // Update progress
+                progressBar.style.width = `${((i + 1) / totalPages) * 100}%`;
+                progressText.innerText = `${i + 1}/${totalPages}`;
 
-            // Convert canvas to PNG for PDF
-            const imgBytes = await new Promise(resolve =>
-                canvas.toBlob(blob => blob.arrayBuffer().then(resolve), 'image/png')
-            );
-
-            const jpgImage = await chunkDoc.embedPng(imgBytes);
-            const newPage = chunkDoc.addPage([viewport.width, viewport.height]);
-            newPage.drawImage(jpgImage, {
-                x: 0,
-                y: 0,
-                width: viewport.width,
-                height: viewport.height
-            });
-
-            page.cleanup();
-
-            // Update progress
-            const percent = ((i + 1) / totalPages) * 100;
-            progressBar.style.width = `${percent}%`;
-            progressText.innerText = `${i + 1}/${totalPages}`;
+                return imgBytes;
+            })());
         }
 
-        const chunkBytes = await chunkDoc.save();
-        chunks.push(chunkBytes);
+        // Wait for this chunk to finish
+        const chunkImages = await Promise.all(pagePromises);
+        allPageImages.push(...chunkImages);
     }
 
-    progressText.innerText = "Merging PDF chunks...";
-
-    // Merge all chunks into final PDF
+    // Merge all pages into final PDF
+    progressText.innerText = "Merging PDF pages...";
     const finalPdfDoc = await PDFLib.PDFDocument.create();
-    for (let i = 0; i < chunks.length; i++) {
+    for (const imgBytes of allPageImages) {
         if (renderId !== currentRenderId) return;
-        const chunkDoc = await PDFLib.PDFDocument.load(chunks[i]);
-        const copiedPages = await finalPdfDoc.copyPages(chunkDoc, chunkDoc.getPageIndices());
-        copiedPages.forEach(page => finalPdfDoc.addPage(page));
-        chunks[i] = null;
+        const jpgImage = await finalPdfDoc.embedPng(imgBytes);
+        const page = finalPdfDoc.addPage([jpgImage.width, jpgImage.height]);
+        page.drawImage(jpgImage, { x: 0, y: 0, width: jpgImage.width, height: jpgImage.height });
     }
 
     progressText.innerText = "Finalizing...";
