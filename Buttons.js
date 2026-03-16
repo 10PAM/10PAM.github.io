@@ -151,6 +151,13 @@ function darkModeInitialize() {
     let originalFileName = "";
     let currentRenderId = 0;
     // Theme definitions
+    let themeSelector;
+    try {
+        themeSelector = await waitForElement('#themeSelector');
+    } catch (err) {
+        console.error(err);
+        return; // Exit if the element never appears
+    }
     
     const themes = {
         classic: {
