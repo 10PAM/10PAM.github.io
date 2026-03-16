@@ -144,7 +144,7 @@ function myFunctionTopClose(typ3) {
 }
 
 // Pdf-Dark-Mode-App
-function darkModeInitialize() {
+async function darkModeInitialize() {
     // Worker for PDF-Dark-Mode
     let modifiedPdfBytes;
     let originalPdfData = null;
