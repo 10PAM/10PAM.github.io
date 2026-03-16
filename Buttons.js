@@ -214,7 +214,7 @@ function loadPdfLibraries() {
 async function ensurePdfLibraries() {
     try {
         await loadPdfLibraries();
-        document.getElementById('fileInput').click(); // open file picker
+        //document.getElementById('fileInput').click(); // open file picker
     } catch (e) {
         alert("Unable to load PDF libraries. Please check your connection and try again.");
         throw e;
