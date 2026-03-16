@@ -322,7 +322,7 @@ function darkModeInitialize() {
     
                 const page = await pdf.getPage(i + 1);
                 // 3: Heavy; 2: Good Quality; 1.5: Fase;
-                const scale = window.devicePixelRatio > 1 ? 2 : 1.5;;
+                const scale = window.devicePixelRatio > 1 ? 2 : 1.5;
                 const viewport = page.getViewport({
                     scale
                 });
