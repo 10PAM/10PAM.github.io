@@ -235,7 +235,7 @@ async function ensurePdfLibraries() {
 
 // Apply Theme
 function applyThemeBackground(theme) {
-    document.body.style.backgroundColor = `rgb(${theme.r}, ${theme.g}, ${theme.b})`;
+    document.document.getElementById('PDF-Dark-Mode_DIV').style.backgroundColor = `rgb(${theme.r}, ${theme.g}, ${theme.b})`;
 }
 const selector = document.getElementById('themeSelector');
 if (selector) {
