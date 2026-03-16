@@ -280,7 +280,7 @@ async function darkModeInitialize() {
             document.getElementById('downloadBtn').style.display = 'none';
             await renderPDF(originalPdfData);
         }
-    });
+    }
     
     //document.querySelector('.custom-file-upload').addEventListener('click', () => {
     ///    loadPdfLibraries().catch(() => {});
