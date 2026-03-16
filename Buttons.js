@@ -227,13 +227,17 @@ function darkModeInitialize() {
             throw e;
         }
     }
-    
+
+    // Apply Theme
     function applyThemeBackground(theme) {
         document.body.style.backgroundColor = `rgb(${theme.r}, ${theme.g}, ${theme.b})`;
     }
-    
-    applyThemeBackground(themes[document.getElementById('themeSelector').value]);
-    
+    const selector = document.getElementById('themeSelector');
+    if (selector) {
+        applyThemeBackground(themes[selector.value]);
+    }
+
+    // Handle PDF File
     function handleFile(file) {
         originalFileName = file.name.replace(/\.pdf$/i, '');
         const fileReader = new FileReader();
