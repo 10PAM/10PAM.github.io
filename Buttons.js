@@ -55,7 +55,7 @@ function innerPage(pageName) {
     const div_ID = pageName + "_DIV";
     if (document.getElementById(div_ID) !== null) {
         let careerTextArea = document.getElementById(div_ID);
-        fetch("./Pages/" + pageName + ".html")
+        fetch("./Pages/" + pageName + "index.html")
         .then(response => response.text())
         .then(html => {
             careerTextArea.innerHTML = html;
@@ -145,7 +145,8 @@ function myFunctionTopClose(typ3) {
 
 // Run Functions
 document.addEventListener('DOMContentLoaded', function() {
-    innerPage("Calendar/index");
+    innerPage("Calendar");
+    innerPage("PDF-Dark-Mode");
 });
 
 
