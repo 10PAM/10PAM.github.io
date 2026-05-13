@@ -1,2 +1,2 @@
 User-agent: Googlebot-Image
-Disallow: /Images/Calendar/
+Disallow: /mario/Images/Calendar/
