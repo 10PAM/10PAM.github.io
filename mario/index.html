@@ -229,9 +229,15 @@
 
         .Employment_Logo{
             cursor: pointer; 
-            width: 10%; 
-            height: 10%; 
+            width: 50px; 
+            height: 50px; 
             -webkit-user-drag: none;
+        }
+
+        .Sub_Head_Page{
+            display: none; 
+            text-align: center; 
+            margin: auto;
         }
         
     </style>
@@ -303,8 +309,8 @@
        
         </section>
 
-        <section class="Skills" id="Skills" style="width: 90%; display: none; text-align: center; margin: auto;">
-            <div>
+        <section class="Sub_Head_Page" id="Skills">
+            <div class="Skills">
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Self Evaluated Skills Below:</p>
 
@@ -736,8 +742,8 @@
 
         <!--Employment History Start-->
 
-        <section class="Employment" id="Employment">
-            <div>
+        <section class="Sub_Head_Page" id="Employment">
+            <div class="Employment">
 
                 <p class="SubHeader">Please Find My Employment History Below:</p>
 
@@ -782,8 +788,8 @@
         
         <!--Education Start-->
 
-        <section class="Education" id="Education" style="width: 90%; display: none; text-align: center; margin: auto;">
-            <div>
+        <section class="Sub_Head_Page" id="Education">
+            <div class="Education">
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Education History Below:</p>
 
@@ -821,8 +827,8 @@
         
         <!--Certifications and Awards Start-->
 
-        <section class="Certifications" id="Certifications" style="width: 90%; display: none; text-align: center; margin: auto;">
-            <div>
+        <section class="Sub_Head_Page" id="Certifications">
+            <div class="Certifications">
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Up to Date Certifications and Awards History Below:</p>
                 <hr>
@@ -882,180 +888,181 @@
         
         <!--Projects Start-->
 
-        <section class="Projects" id="Projects" style="width: 90%; display: none; text-align: center; margin: auto;">
-            
-            <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Previous and Up to Date Projects & Research Below:</p>
-
-            <hr>
-
-            <!--Project Buttons: box-shadow: 0px 0px 5px rgb(255, 255, 255); -->
-            
-            <a onclick="myFunctionProject('Project6')">
-                <img class="Project1_Img" src="Images/DarkMode.jpg" alt="PDF Dark Mode" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
-            </a>
-            
-            <a onclick="myFunctionProject('Project1')">
-                <img class="Project2_Img" src="Images/Pet2_Icon.jpg" alt="Pet Navigator" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
-            </a>
-            
-            <a id="Project1_Bttn" onclick="myFunctionProject('Project2')" >
-                <img class="Project3_Img" src="Images/Clockwork_Icon.jpg" alt="Clockwork Universe Project" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
-            </a>
-            
-            <a onclick="myFunctionProject('Project3')">
-                <img class="Project4_Img" src="Images/Laptop_Icon.jpg" alt="Laptop Dissasembly and Reassembly Project" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
-            </a>
-            
-            <a onclick="myFunctionProject('Project4')">
-                <img class="Project5_Img" src="Images/PCRebuild_Icon.jpg" alt="PC Dissasembly and Reassembly Project" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
-            </a>
-            
-            <a onclick="myFunctionProject('Project5')">
-                <img class="Project6_Img" src="Images/PC_Icon.jpg" alt="Personal PC Build Project" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
-            </a>
-
-            <hr>
-
-            <!--Dark Mode-->
-            <section class="Project6" id="Project6" style="width: 100%; display: none;">
-
-                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">PDF-Dark-Mode App:</p>
-
+        <section class="Sub_Head_Page" id="Projects">
+            <div class="Projects">
+                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Previous and Up to Date Projects & Research Below:</p>
+    
                 <hr>
-
-                <!--HTML Insert Start-->
-                <div id="PDF-Dark-Mode_DIV"></div>
-                <!--HTML Insert End-->
+    
+                <!--Project Buttons: box-shadow: 0px 0px 5px rgb(255, 255, 255); -->
                 
+                <a onclick="myFunctionProject('Project6')">
+                    <img class="Project1_Img" src="Images/DarkMode.jpg" alt="PDF Dark Mode" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
+                </a>
+                
+                <a onclick="myFunctionProject('Project1')">
+                    <img class="Project2_Img" src="Images/Pet2_Icon.jpg" alt="Pet Navigator" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
+                </a>
+                
+                <a id="Project1_Bttn" onclick="myFunctionProject('Project2')" >
+                    <img class="Project3_Img" src="Images/Clockwork_Icon.jpg" alt="Clockwork Universe Project" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
+                </a>
+                
+                <a onclick="myFunctionProject('Project3')">
+                    <img class="Project4_Img" src="Images/Laptop_Icon.jpg" alt="Laptop Dissasembly and Reassembly Project" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
+                </a>
+                
+                <a onclick="myFunctionProject('Project4')">
+                    <img class="Project5_Img" src="Images/PCRebuild_Icon.jpg" alt="PC Dissasembly and Reassembly Project" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
+                </a>
+                
+                <a onclick="myFunctionProject('Project5')">
+                    <img class="Project6_Img" src="Images/PC_Icon.jpg" alt="Personal PC Build Project" style="border-radius: 50%; cursor: pointer; -webkit-user-drag: none; width: 12%; height: 12%; margin-right: 3%;">
+                </a>
+    
                 <hr>
-            </section>
-            
-            <!--Project 1 Start-->
-            <section class="Project1" id="Project1" style="width: 100%; display: none;">
-
-                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Pet Navigator</p>
-                
-                <br>
-
-                <section class="Video" id="Video_1" style="width: 80%; height: 100%; margin: auto; text-align: center;">
-                    <iframe style="width: 100%; height: 50vh;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen=""
-                    src="https://www.youtube-nocookie.com/embed/Y0kwEVogGg4?rel=0"></iframe>
+    
+                <!--Dark Mode-->
+                <section class="Project6" id="Project6" style="width: 100%; display: none;">
+    
+                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">PDF-Dark-Mode App:</p>
+    
+                    <hr>
+    
+                    <!--HTML Insert Start-->
+                    <div id="PDF-Dark-Mode_DIV"></div>
+                    <!--HTML Insert End-->
+                    
+                    <hr>
                 </section>
-
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is a project that I had worked on during my free time while attending Central Washington University. It is a project I did using Visual Studio as the integrated development environment, the Visual Studio CLR C++ and .NET development kit, and Microsoft's SQLExpress as the server. The key things that I took from this project was learning more about C++ as a programming language, learning about how SQL works on a lower level, and learning about setting up and testing an SQL server.</p>
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Concept: Database Navigator that Shows Data of Pets</p>
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 10/19/2024 to 10/20/2024</p>
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Access to the Repository: https://github.com/10PAM/Pet-Database</p>
-                <hr>
-
-            </section>
-            <!--Project 1 End-->
-
-            <!--Project 2 Start (style of og vid: width: 50vw; height: 40vh;)-->
-            <section class="Project2" id="Project2" style="width: 100%; display: none;">
-
-                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Clockwork Universe</p>
-
-                <br>
                 
-                <section class="Video" id="Video_2" style="width: 80%; height: 100%; margin: auto; text-align: center;">
-                    <iframe style="width: 100%; height: 50vh;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen=""
-                    src="https://www.youtube-nocookie.com/embed/IzMQjMN1dqw?rel=0"></iframe>
+                <!--Project 1 Start-->
+                <section class="Project1" id="Project1" style="width: 100%; display: none;">
+    
+                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Pet Navigator</p>
+                    
+                    <br>
+    
+                    <section class="Video" id="Video_1" style="width: 80%; height: 100%; margin: auto; text-align: center;">
+                        <iframe style="width: 100%; height: 50vh;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen=""
+                        src="https://www.youtube-nocookie.com/embed/Y0kwEVogGg4?rel=0"></iframe>
+                    </section>
+    
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is a project that I had worked on during my free time while attending Central Washington University. It is a project I did using Visual Studio as the integrated development environment, the Visual Studio CLR C++ and .NET development kit, and Microsoft's SQLExpress as the server. The key things that I took from this project was learning more about C++ as a programming language, learning about how SQL works on a lower level, and learning about setting up and testing an SQL server.</p>
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Concept: Database Navigator that Shows Data of Pets</p>
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 10/19/2024 to 10/20/2024</p>
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Access to the Repository: https://github.com/10PAM/Pet-Database</p>
+                    <hr>
+    
                 </section>
-
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is a project that I had worked on during my Senior year of High School, and is one of the most up to date showcase I have of video game development. In this, I used the Roblox Studio game engine, and I focused on memory optimization by ensuring lower 3D model polys to enhance performance, making use of client replication to optimize memory usage on the back-end, limiting nested logic statements when not needed to be nested, adding comments to my scripts to ensure ease of finding certain functions in case of needing to go and add, renove, or fix something, adding debounces to prevent excessive inputs, setting up cooldowns to towers as far as allowing a target to be damaged only once every other few seconds which can be seen with the "Flame Thrower" Trap while still allowing other targets to be damaged, using loops only when needed and on the client rather than on the server, and ensuring that player inputs were as bug free as possible. The key takeaway from this project that I had was memory optimization, ensuring fault tolerant logic, reusing functions to keep code small and concise, and most importantley improving my time management skills.</p>
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Concept: Tower Defense against Waves of Skeletons</p>
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 3/15/24 to 3/30/24</p>
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Access to the Game: https://www.roblox.com/games/15788568810/Clockwork-Universe</p>
-                <hr>
-
-            </section>
-            <!--Project 2 End-->
-            
-            <!--Project 3 Start-->
-
-            <section class="Project3" id="Project3" style="width: 100%; display: none;">
+                <!--Project 1 End-->
+    
+                <!--Project 2 Start (style of og vid: width: 50vw; height: 40vh;)-->
+                <section class="Project2" id="Project2" style="width: 100%; display: none;">
+    
+                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Clockwork Universe</p>
+    
+                    <br>
+                    
+                    <section class="Video" id="Video_2" style="width: 80%; height: 100%; margin: auto; text-align: center;">
+                        <iframe style="width: 100%; height: 50vh;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen=""
+                        src="https://www.youtube-nocookie.com/embed/IzMQjMN1dqw?rel=0"></iframe>
+                    </section>
+    
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is a project that I had worked on during my Senior year of High School, and is one of the most up to date showcase I have of video game development. In this, I used the Roblox Studio game engine, and I focused on memory optimization by ensuring lower 3D model polys to enhance performance, making use of client replication to optimize memory usage on the back-end, limiting nested logic statements when not needed to be nested, adding comments to my scripts to ensure ease of finding certain functions in case of needing to go and add, renove, or fix something, adding debounces to prevent excessive inputs, setting up cooldowns to towers as far as allowing a target to be damaged only once every other few seconds which can be seen with the "Flame Thrower" Trap while still allowing other targets to be damaged, using loops only when needed and on the client rather than on the server, and ensuring that player inputs were as bug free as possible. The key takeaway from this project that I had was memory optimization, ensuring fault tolerant logic, reusing functions to keep code small and concise, and most importantley improving my time management skills.</p>
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Concept: Tower Defense against Waves of Skeletons</p>
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 3/15/24 to 3/30/24</p>
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Access to the Game: https://www.roblox.com/games/15788568810/Clockwork-Universe</p>
+                    <hr>
+    
+                </section>
+                <!--Project 2 End-->
                 
-                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">School Laptop Disassembly and Reassembly</p>
-
-                <br>
+                <!--Project 3 Start-->
+    
+                <section class="Project3" id="Project3" style="width: 100%; display: none;">
+                    
+                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">School Laptop Disassembly and Reassembly</p>
+    
+                    <br>
+                    
+                    <div>
+                        <img src="Images/Pre_2.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                        <img src="Images/Pre_3.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                         <img src="Images/Pre_1.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                         <img src="Images/Pre_4.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                    </div>
+    
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This was a project we had done in my Cybersecurity vocational school (YVTECH), and the main focus of the project was to test our laptop dissambly and reassembly skills. I had not known much information about disassembling laptops before, but since we were able to chose one partner to be a team with, it helped us finish the project on time and with success. With this, I learned about ribbon wires. The key takeways that I had from this project were teamwork collaboration skills, reflecting on the importance of organizing to keep track of what was disconnected and what screws belonged to what, and improving my time management skills.</p>
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 6/7/2023</p>
+                    <hr>
+    
+                </section>
+    
+                <!--Project 3 End-->
+    
+                <!--Project 4 Start-->
+    
+                <section class="Project4" id="Project4" style="width: 100%; display: none;">
+                    
+                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">School PC Disassembly and Reassembly</p>
+    
+                    <br>
+                    
+                    <div>
+                        <img src="Images/PC_Pre.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                        <img src="Images/PC_1.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                        <img src="Images/PC_2.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                        <img src="Images/PC_3.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                        <img src="Images/PC_4.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                        <img src="Images/PC_Done.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                        <img src="Images/PC_Done2.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                    </div>
+    
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This was another project we had done in my Cybersecurity vocational school (YVTECH), and the main focus of the project was to test our PC dissambly and reassembly skills. With this project, I had previous knowledge of building a PC when I built my own before, and thankfully I ended up the project on time and with a successful boot up. The key takeways that I had from this project were experience matters, being thoughtful of what is being removed and added, and improving my time management skills.</p>
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 6/6/2023</p>
+                    <hr>
+    
+                </section>
+    
+                <!--Project 4 End-->
+    
+                <!--Project 5 Start-->
+    
+                <section class="Project5" id="Project5" style="width: 100%; display: none;">
+    
+                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Personal PC Build</p>
+    
+                    <br>
+                    
+                    <div>
+                        <img src="Images/Personal_PC.jpg" alt="My Custom PC" loading="lazy" style="-webkit-user-drag: none; width: 38%; height: 38%; margin-right: 1%;">
+                    </div>
+    
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is my current custom PC, which I built while saving up for a better computer than my previous one. At the time, I had an Amazon pre-built compact pc which I loved up until I started getting into making games and realized that I needed quite a bit more processing power. After a while of saving up, I managed to build this PC which with the use of YouTube, I managed to wire and learn about assembling and disassembling computers. One noteable thing that I loved from this project was being able to keep and install the 512 GB HDD which I got from my first PC and use as extra storage after partitioning it.</p>
+                    <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 5/20/2020</p>
+                    <hr>
+    
+                </section>
                 
-                <div>
-                    <img src="Images/Pre_2.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
-                    <img src="Images/Pre_3.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
-                     <img src="Images/Pre_1.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
-                     <img src="Images/Pre_4.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
+                <!--Project 5 End-->
+    
+                <!--Top/Close Buttons Start-->
+                <div class="button_container_projects">
+                    <button class="Button_Projects" onclick="myFunctionTopClose('Top')" style="cursor: pointer; font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Back To Top</button>
+                    <button class="Button_Projects" onclick="myFunctionTopClose('Projects')" style="cursor: pointer;  font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Close</button>
                 </div>
+                <!--Top/Close Buttons End-->
 
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This was a project we had done in my Cybersecurity vocational school (YVTECH), and the main focus of the project was to test our laptop dissambly and reassembly skills. I had not known much information about disassembling laptops before, but since we were able to chose one partner to be a team with, it helped us finish the project on time and with success. With this, I learned about ribbon wires. The key takeways that I had from this project were teamwork collaboration skills, reflecting on the importance of organizing to keep track of what was disconnected and what screws belonged to what, and improving my time management skills.</p>
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 6/7/2023</p>
-                <hr>
-
-            </section>
-
-            <!--Project 3 End-->
-
-            <!--Project 4 Start-->
-
-            <section class="Project4" id="Project4" style="width: 100%; display: none;">
-                
-                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">School PC Disassembly and Reassembly</p>
-
-                <br>
-                
-                <div>
-                    <img src="Images/PC_Pre.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
-                    <img src="Images/PC_1.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
-                    <img src="Images/PC_2.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
-                    <img src="Images/PC_3.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
-                    <img src="Images/PC_4.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
-                    <img src="Images/PC_Done.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
-                    <img src="Images/PC_Done2.jpg" alt="Portrait" loading="lazy" style="-webkit-user-drag: none; width: 20%; height: 20%; margin-right: 1%;">
-                </div>
-
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This was another project we had done in my Cybersecurity vocational school (YVTECH), and the main focus of the project was to test our PC dissambly and reassembly skills. With this project, I had previous knowledge of building a PC when I built my own before, and thankfully I ended up the project on time and with a successful boot up. The key takeways that I had from this project were experience matters, being thoughtful of what is being removed and added, and improving my time management skills.</p>
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 6/6/2023</p>
-                <hr>
-
-            </section>
-
-            <!--Project 4 End-->
-
-            <!--Project 5 Start-->
-
-            <section class="Project5" id="Project5" style="width: 100%; display: none;">
-
-                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Personal PC Build</p>
-
-                <br>
-                
-                <div>
-                    <img src="Images/Personal_PC.jpg" alt="My Custom PC" loading="lazy" style="-webkit-user-drag: none; width: 38%; height: 38%; margin-right: 1%;">
-                </div>
-
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">This is my current custom PC, which I built while saving up for a better computer than my previous one. At the time, I had an Amazon pre-built compact pc which I loved up until I started getting into making games and realized that I needed quite a bit more processing power. After a while of saving up, I managed to build this PC which with the use of YouTube, I managed to wire and learn about assembling and disassembling computers. One noteable thing that I loved from this project was being able to keep and install the 512 GB HDD which I got from my first PC and use as extra storage after partitioning it.</p>
-                <p style="font-size: 2.0vw; color: rgb(255, 255, 255);">Dates Worked On: 5/20/2020</p>
-                <hr>
-
-            </section>
-            
-            <!--Project 5 End-->
-
-            <!--Top/Close Buttons Start-->
-            <div class="button_container_projects">
-                <button class="Button_Projects" onclick="myFunctionTopClose('Top')" style="cursor: pointer; font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Back To Top</button>
-                <button class="Button_Projects" onclick="myFunctionTopClose('Projects')" style="cursor: pointer;  font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Close</button>
             </div>
-            <!--Top/Close Buttons End-->
-
         </section>
 
         <!--Projects End-->
         
         <!--Contact Start-->
 
-        <section class="Contact" id="Contact" style="width: 90%; display: none; text-align: center; margin: auto;">
-            <div>
+        <section class="Sub_Head_Page" id="Contact">
+            <div class="Contact">
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Please Find My Contact Information Below:</p>
 
@@ -1085,8 +1092,8 @@
         
         <!--Research Start-->
 
-        <section class="Research" id="Research" style="width: 90%; display: none; text-align: center; margin: auto;">
-            <div>
+        <section class="Sub_Head_Page" id="Research">
+            <div class="Research">
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">My Research Section:</p>
 
@@ -1112,8 +1119,8 @@
                         
         <!--Blog Start-->
 
-        <section class="Blog" id="Blog" style="width: 90%; display: none; text-align: center; margin: auto;">
-            <div>
+        <section class="Sub_Head_Page" id="Blog">
+            <div class="Blog">
 
                 <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">My Blog Section:</p>
 
