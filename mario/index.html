@@ -70,7 +70,6 @@
         body 
         {
             background-size: contain;
-            height: 100%;
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-position: 50% 0;
@@ -88,6 +87,12 @@
             border-radius: 1%;
             text-align: center;
             position: relative;
+            cursor: pointer;
+            font-size: 1.6vw; 
+            vertical-align: middle; 
+            margin-top: 1%; 
+            width: 24%; 
+            height: 20%;
         }
 
         .Badges{
@@ -105,6 +110,9 @@
         }
 
         .intro{
+            margin-bottom: 2%; 
+            font-size: 24px; 
+            color: rgb(255, 255, 255);
             text-align: center;
             margin: auto;
             width: 90%;
@@ -117,7 +125,7 @@
         .footer {
             position: relative;
             width: auto;
-            height: 35%;
+            height: 300px;
             bottom: 0 !important;
             background-color: transparent;
             margin-top: 100vh;
@@ -158,6 +166,42 @@
             from {width: 0;}
         }
 
+        .landing_logo{
+            vertical-align: center; 
+            -webkit-user-drag: none; 
+            width: 350px; 
+            height: 350px; 
+            margin-top: 1%; 
+            margin-bottom: 1%; 
+            margin-right: 4%;
+        }
+
+        .contact_buttons{
+            width: 350px;
+            height: 350px;
+            cursor: pointer; 
+            -webkit-user-drag: none;  
+            margin-right: 7%;
+        }
+
+        .container{
+            margin: auto; 
+            text-align: center; 
+            font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
+        }
+
+        .about_me{
+            width: 90%; 
+            margin: auto; 
+            text-align: center;
+        }
+
+        #Intro_Buttons_Container{
+            width: 100%; 
+            text-align: center; 
+            margin: auto;
+        }
+
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7903C1LBGP"></script>
@@ -171,58 +215,58 @@
     
 </head>
 <body>
-    <div class="container" style="width: 100%; margin: auto; text-align: center; font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;">  
+    <div class="container">  
         <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Piceno - Founder</h1>
         <div class="intro_anim" id="title">
           
-            <p class="intro" style="margin-bottom: 2%; font-size: 3.2vw; color: rgb(255, 255, 255);">Mario Aguilera Piceno | Founder @ Piceno</h1>
+            <p class="intro">Mario Aguilera Piceno | Founder @ Piceno</h1>
             
         </div>
 
         <hr>
-        <img class="landing_logo" src="Images/Portrait.jpg" onclick="window.location.reload();" alt="Mario Aguilera Piceno - Software Developer - Yakima, WA" style="cursor: pointer; vertical-align: center; -webkit-user-drag: none; width: 12%; height: 12%; margin-top: 1%; margin-bottom: 1%; margin-right: 4%;">
-        <img class="landing_logo" src="Images/Plus.png" alt="Mario + Piceno" style="vertical-align: center; -webkit-user-drag: none; width: 12%; height: 12%; margin-top: 1%; margin-bottom: 1%; margin-right: 4%;">
-        <img class="landing_logo" src="Images/Logo_Main.png" onclick="window.open('https://piceno.dev', '_self');" alt="Piceno - Software Company - Yakima, WA" style="text-decoration: none; cursor: pointer; vertical-align: center; -webkit-user-drag: none; width: 12%; height: 12%; margin-top: 1%; margin-bottom: 1%;">
+        <img class="landing_logo" src="Images/Portrait.jpg" onclick="window.location.reload();" alt="Mario Aguilera Piceno - Software Developer - Yakima, WA">
+        <img class="landing_logo" src="Images/Plus.png" alt="Mario + Piceno">
+        <img class="landing_logo" src="Images/Logo_Main.png" onclick="window.open('https://piceno.dev', '_self');" alt="Piceno - Software Company - Yakima, WA">
         <hr>
         
         <div>
         
-            <img onclick="window.open('https://www.linkedin.com/in/mario-aguilera-piceno')" class="landing_logo" src="Images/Linked_In.png" alt="LinkedIn" style="cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%; margin-right: 7%; margin-top: 0.5%;">
+            <img onclick="window.open('https://www.linkedin.com/in/mario-aguilera-piceno')" class="contact_buttons" src="Images/Linked_In.png" alt="LinkedIn">
 
-            <img onclick="window.open('Documents/Curriculum_Vitae.pdf')" class="landing_logo" src="Images/CV.png" alt="Curriculum Vitae" style="cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%; margin-right: 7%;">
+            <img onclick="window.open('Documents/Curriculum_Vitae.pdf')" class="contact_buttons" src="Images/CV.png" alt="Curriculum Vitae">
 
-            <img onclick="window.open('mailto:contact@piceno.dev')" class="landing_logo" src="Images/Gmail.png" alt="Email" style="cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%; margin-right: 7%;">
+            <img onclick="window.open('mailto:contact@piceno.dev')" class="contact_buttons" src="Images/Gmail.png" alt="Email">
             
-            <img onclick="window.open('https://github.com/10PAM')" class="landing_logo" src="Images/Github.png" alt="GitHub" style="cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%; margin-right: 7%;">
+            <img onclick="window.open('https://github.com/10PAM')" class="contact_buttons" src="Images/Github.png" alt="GitHub">
             
-            <img onclick="window.open('https://www.instagram.com/yoo.mario')" class="landing_logo" src="Images/Instagram.png" alt="Instagram" style="cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%; margin-right: 7%;">
+            <img onclick="window.open('https://www.instagram.com/yoo.mario')" class="contact_buttons" src="Images/Instagram.png" alt="Instagram">
             
-            <img onclick="window.open('https://www.facebook.com/01MAP')" class="landing_logo" src="Images/Facebook.png" alt="Facebook" style="cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%; margin-right: 7%;">
+            <img onclick="window.open('https://www.facebook.com/01MAP')" class="contact_buttons" src="Images/Facebook.png" alt="Facebook">
             
-            <img onclick="window.open('https://www.youtube.com/@PicenoLLC')" class="landing_logo" src="Images/YouTube.png" alt="YouTube" style="cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%;">
+            <img onclick="window.open('https://www.youtube.com/@PicenoLLC')" class="contact_buttons" src="Images/YouTube.png" alt="YouTube">
             
         </div>
 
         <hr>
 
-        <div class="about_me" style="width: 90%; margin: auto; text-align: center;">
+        <div class="about_me">
             <p style="font-size: 2.1vw; color: rgb(255, 255, 255);">Hello, and thank you for stopping by! My name is Mario, and I have a deep passion for understanding how computers work at a fundamental level, particularly in the realm of software engineering. Feel free to explore my portfolio, where you can learn more about some of the skills, education, and work experience that I've gained over the years.</p>
             
         </div>
 
         <hr>
-        <section id="Intro_Buttons" style="width: 100%; text-align: center; margin: auto;" class="buttons">
+        <section id="Intro_Buttons_Container">
             
-            <div class="button_container">
+            <div>
 
-                <button class="Button_Projects" onclick="myFunction('Education')" style="cursor: pointer; font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Education</button>
-                <button class="Button_Projects" onclick="myFunction('Employment')" style="cursor: pointer;  font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Employment History</button>
-                <button class="Button_Projects" onclick="myFunction('Certifications')" style="cursor: pointer;  font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Certifications & Awards</button>
-                <button class="Button_Projects" onclick="myFunction('Projects'); innerPage('PDF-Dark-Mode')" style="cursor: pointer;  font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Projects</button>
-                <button class="Button_Projects" onclick="myFunction('Skills')" style="cursor: pointer;  font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Skills</button>
-                <button class="Button_Projects" onclick="myFunction('Blog')" style="cursor: pointer;  font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Blog</button>
-                <button class="Button_Projects" onclick="myFunction('Research')" style="cursor: pointer;  font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Research</button>
-                <button class="Button_Projects" onclick="myFunction('Contact')" style="cursor: pointer;  font-size: 1.6vw; vertical-align: middle; margin-top:1%; width: 24%; height: 20%;">Contact</button>
+                <button class="Button_Projects" onclick="myFunction('Education')">Education</button>
+                <button class="Button_Projects" onclick="myFunction('Employment')">Employment History</button>
+                <button class="Button_Projects" onclick="myFunction('Certifications')">Certifications & Awards</button>
+                <button class="Button_Projects" onclick="myFunction('Projects'); innerPage('PDF-Dark-Mode')">Projects</button>
+                <button class="Button_Projects" onclick="myFunction('Skills')">Skills</button>
+                <button class="Button_Projects" onclick="myFunction('Blog')">Blog</button>
+                <button class="Button_Projects" onclick="myFunction('Research')">Research</button>
+                <button class="Button_Projects" onclick="myFunction('Contact')">Contact</button>
                 
             </div>
        
