@@ -61,12 +61,6 @@
             text-align: center;
         }
 
-        .about_me{
-            margin-right: 1%;
-            text-align: center;
-            width: 45%;
-        }
-
         body 
         {
             background-size: contain;
@@ -93,36 +87,14 @@
             height: 30px;
         }
         
-        @media (max-width: 1300px) {
-            .Button_Projects{
-            padding-right: 0%;
-            color: #ffffff;
-            outline: none;
-            background-color: rgba(119, 20, 20, 0);
-            border-color: #ffffff;
-            border-radius: 2px;
+        .intro{
+            margin-bottom: 10px;
+            font-size: 40px;
+            color: rgb(255, 255, 255);
             text-align: center;
-            position: relative;
-            cursor: pointer;
-            font-size: 12px; 
-            vertical-align: middle; 
-            margin-top: 15px; 
-            width: 100px; 
-            height: 35px;
-            }
-            
-            body 
-        {
-            background-size: contain;
-            background-color: rgb(0, 0, 0);
-            overflow-y: scroll;
-            text-align: center;
-            vertical-align: middle;
-            width: 100%;
+            animation: typing 2s;
         }
-            
-        }
-        
+    
         .Badges{
             padding-right: 0%;
             color: #ffffff;
@@ -137,14 +109,6 @@
             text-align: center;
         }
 
-        .intro{
-            margin-bottom: 10px;
-            font-size: 40px;
-            color: rgb(255, 255, 255);
-            text-align: center;
-            animation: typing 2s;
-        }
-        
         .footer {
             position: relative;
             width: auto;
@@ -291,6 +255,43 @@
 
         .Project_Button_Style:hover{
             box-shadow: 0px 0px 5px rgb(255, 255, 255);
+        }
+        
+        @media (max-width: 1300px) {
+            .Button_Projects{
+                padding-right: 0%;
+                color: #ffffff;
+                outline: none;
+                background-color: rgba(119, 20, 20, 0);
+                border-color: #ffffff;
+                border-radius: 2px;
+                text-align: center;
+                position: relative;
+                cursor: pointer;
+                font-size: 12px; 
+                vertical-align: middle; 
+                margin-top: 15px; 
+                width: 100px; 
+                height: 35px;
+            }
+            
+            body 
+            {
+                background-size: contain;
+                background-color: rgb(0, 0, 0);
+                overflow-y: scroll;
+                text-align: center;
+                vertical-align: middle;
+                width: 100%;
+            }
+            
+            .intro{
+                margin-bottom: 10px;
+                font-size: 20px;
+                color: rgb(255, 255, 255);
+                text-align: center;
+                animation: typing 2s;
+            }
         }
         
     </style>
