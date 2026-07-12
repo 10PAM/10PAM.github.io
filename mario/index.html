@@ -163,8 +163,13 @@
         }
 
         .container{
-            align-content: center; /* Modern CSS: Vertically centers block elements */
             text-align: center;
+            display: flex;
+            flex-direction: column; /* Stacks elements vertically */
+            align-items: center; /* Aligns text vertically */
+            justify-content: center;
+            align-content: center; /* Modern CSS: Vertically centers block elements */
+            flex-wrap: wrap;
         }
 
         .about_me{
