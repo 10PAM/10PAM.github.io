@@ -88,10 +88,12 @@
             font-size: 18px;
             width: 210px; 
             height: 30px;
+            
         }
         
         .intro{
-            margin-bottom: 10px;
+            margin-top: 1px;
+            margin-bottom: 1px;
             font-size: 40px;
             /*overflow: hidden;  Ensures the content is not revealed until the animation 
             border-right: .1em solid #ffffff;
@@ -100,7 +102,8 @@
             animation: 
             typing 2s steps(40), blink-caret .75s step-end infinite;*/
             font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
-            color: rgb(255, 255, 255); 
+            color: rgb(255, 255, 255);
+            font-weight: normal;
         }
     
         .Badges{
@@ -262,7 +265,20 @@
             width: 100%;
             display: none;
         }
+
+        .Top_Header{
+            background-color: rgb(53, 53, 53, 0);
+            width: 100%;
+        }
         
+        .top_header_logo{
+            -webkit-user-drag: none; 
+            width: 190px; 
+            height: 45px;
+            float: none;
+            cursor: pointer; 
+        }
+
         @media (max-width: 1919px) {
             
             .Button_Projects_Container{
@@ -326,11 +342,13 @@
                 float: right;
             }
 
-            .Sub_Head_Page{
-            }
-
             .container{
                 width: 100%;
+            }
+
+            .top_header_logo{
+                width: 110px; 
+                height: 25px;
             }
         }
 
@@ -365,8 +383,15 @@
     
 </head>
 <body>
+
+    
+
     <div class="container">  
-        
+
+        <div class="Top_Header">
+            <img class="top_header_logo" src="Images/Piceno_Text_Light.png" onclick="window.open('https://piceno.dev/')" alt="Mario Aguilera Piceno - Software Developer - Yakima, WA">  
+        </div>
+
         <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Piceno - Founder</h1>
         
        <h2 class="intro">Mario Aguilera Piceno</h1>
@@ -374,7 +399,7 @@
 
         <hr class="Horizontal_Line">
         <div class="contact_buttons_container">
-        <img class="landing_logo" src="Images/Portrait.jpg" onclick="window.open('https://piceno.dev/')" alt="Mario Aguilera Piceno - Software Developer - Yakima, WA">
+        <img class="landing_logo" src="Images/Portrait.jpg" onclick="window.open('https://piceno.dev/mario/')" alt="Mario Aguilera Piceno - Software Developer - Yakima, WA">
         </div>
         
         <hr class="Horizontal_Line">
