@@ -395,71 +395,71 @@
         }
         
         /* Container holding the image and the glow effects */
-.glow-container {
-  position: relative;
-  width: 300px; /* Match your image width */
-  height: 300px; /* Match your image height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #111; /* Dark background enhances the glow */
-  border-radius: 16px;
-  overflow: hidden; /* Clips the sharp corners of the rotating gradient */
-}
+        .glow-container {
+          position: relative;
+          width: 300px; /* Match your image width */
+          height: 300px; /* Match your image height */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #111; /* Dark background enhances the glow */
+          border-radius: 16px;
+          overflow: hidden; /* Clips the sharp corners of the rotating gradient */
+        }
+        
+        /* Keeps the image on top of the background animations */
+        .glow-container img {
+          position: relative;
+          width: calc(100% - 6px); /* Creates space for a 3px border */
+          height: calc(100% - 6px);
+          object-fit: cover;
+          border-radius: 13px; /* Slightly less than container to fit perfectly */
+          z-index: 2;
+        }
 
-/* Keeps the image on top of the background animations */
-.glow-container img {
-  position: relative;
-  width: calc(100% - 6px); /* Creates space for a 3px border */
-  height: calc(100% - 6px);
-  object-fit: cover;
-  border-radius: 13px; /* Slightly less than container to fit perfectly */
-  z-index: 2;
-}
+        /* The underlying rotating gradient (Creates the sharp border) */
+        .glow-container::after {
+          content: '';
+          position: absolute;
+          width: 150%; /* Oversized to ensure corners are fully covered while rotating */
+          height: 150%;
+          background: conic-gradient(
+            #ff007f, 
+            #7f00ff, 
+            #00f0ff, 
+            #ff007f
+          );
+          animation: rotateGlow 4s linear infinite;
+          z-index: 1;
+        }
+        
+        /* The blurred duplicate (Creates the soft outer atmospheric glow) */
+        .glow-container::before {
+          content: '';
+          position: absolute;
+          width: 150%;
+          height: 150%;
+          background: conic-gradient(
+            #ff007f, 
+            #7f00ff, 
+            #00f0ff, 
+            #ff007f
+          );
+          animation: rotateGlow 4s linear infinite;
+          filter: blur(25px); /* Adjust this value to make the glow wider or softer */
+          opacity: 0.8; /* Tones down the glow intensity */
+          z-index: 0;
+        }
 
-/* The underlying rotating gradient (Creates the sharp border) */
-.glow-container::after {
-  content: '';
-  position: absolute;
-  width: 150%; /* Oversized to ensure corners are fully covered while rotating */
-  height: 150%;
-  background: conic-gradient(
-    #ff007f, 
-    #7f00ff, 
-    #00f0ff, 
-    #ff007f
-  );
-  animation: rotateGlow 4s linear infinite;
-  z-index: 1;
-}
-
-/* The blurred duplicate (Creates the soft outer atmospheric glow) */
-.glow-container::before {
-  content: '';
-  position: absolute;
-  width: 150%;
-  height: 150%;
-  background: conic-gradient(
-    #ff007f, 
-    #7f00ff, 
-    #00f0ff, 
-    #ff007f
-  );
-  animation: rotateGlow 4s linear infinite;
-  filter: blur(25px); /* Adjust this value to make the glow wider or softer */
-  opacity: 0.8; /* Tones down the glow intensity */
-  z-index: 0;
-}
-
-/* Keyframe animation to spin the gradient */
-@keyframes rotateGlow {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+        /* Keyframe animation to spin the gradient */
+        @keyframes rotateGlow {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
 
         
     </style>
