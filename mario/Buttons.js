@@ -90,12 +90,12 @@ function myFunction(typ3) {
     previous_ID = typ3;
 
     // Open or Close Desired Menu
-    if (x.style.visibility === "hidden") {
+    if (x.style.display === "none") {
         x.style.display = "block";
-    } else if (x.style.visibility === "visible") {
-        x.style.display = "hidden";
+    } else if (x.style.display === "block") {
+        x.style.display = "none";
     } else {
-        x.style.display = "visible";
+        x.style.display = "block";
     }
   }
 
@@ -114,7 +114,7 @@ function myFunctionProject(typ3) {
     previous_ID_Project = typ3;
 
     // Show or Hide Desired Element
-    if (x.style.visibility === "hidden") {
+    if (x.style.display === "none") {
         x.style.display = "block";
     } else {
         x.style.display = "none";
