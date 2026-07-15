@@ -404,21 +404,8 @@
           50% { border-color: #ffffff; }
         }
         
-        /*  holding the image and the glow effects */
-        .glow- {
-          position: relative;
-          width: 300px; /* Match your image width */
-          height: 300px; /* Match your image height */
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: #111; /* Dark background enhances the glow */
-          border-radius: 16px;
-          overflow: hidden; /* Clips the sharp corners of the rotating gradient */
-        }
-        
         /* Keeps the image on top of the background animations */
-        .glow- img {
+        .landing_logo img {
           position: relative;
           width: calc(100% - 6px); /* Creates space for a 3px border */
           height: calc(100% - 6px);
@@ -428,7 +415,7 @@
         }
 
         /* The underlying rotating gradient (Creates the sharp border) */
-        .glow-::after {
+        .landing_logo::after {
           content: '';
           position: absolute;
           width: 150%; /* Oversized to ensure corners are fully covered while rotating */
@@ -444,7 +431,7 @@
         }
         
         /* The blurred duplicate (Creates the soft outer atmospheric glow) */
-        .glow-::before {
+        .landing_logo::before {
           content: '';
           position: absolute;
           width: 150%;
