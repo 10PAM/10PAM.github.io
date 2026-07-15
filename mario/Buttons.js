@@ -75,14 +75,14 @@ function myFunction(typ3) {
     if (previous_ID !== null && typ3 !== previous_ID)
     {
         var x_previous = document.getElementById(previous_ID);
-        x_previous.style.visibility = "hidden";
+        x_previous.style.display = "none";
     }
 
     //Hide Previous visible project if not null
     if (previous_ID_Project !== null && typ3 !== previous_ID_Project)
     {
         var proj_previous = document.getElementById(previous_ID_Project);
-        proj_previous.style.visibility = "hidden";
+        proj_previous.style.display = "none";
     }
 
     // Obtain Desired Menu
@@ -91,7 +91,7 @@ function myFunction(typ3) {
 
     // Open or Close Desired Menu
     if (x.style.visibility === "hidden") {
-        x.style.visibility = "visible";
+        x.style.display = "block";
     } else if (x.style.visibility === "visible") {
         x.style.display = "hidden";
     } else {
@@ -106,7 +106,7 @@ function myFunctionProject(typ3) {
     if (previous_ID_Project !== null && typ3 !== previous_ID_Project)
     {
         var x_previous = document.getElementById(previous_ID_Project);
-        x_previous.style.visibility = "hidden";
+        x_previous.style.display = "none";
     }
 
     // Find Element
@@ -115,9 +115,9 @@ function myFunctionProject(typ3) {
 
     // Show or Hide Desired Element
     if (x.style.visibility === "hidden") {
-        x.style.visibility = "visible";
+        x.style.display = "block";
     } else {
-        x.style.visibility = "hidden";
+        x.style.display = "none";
     }
 }
 
