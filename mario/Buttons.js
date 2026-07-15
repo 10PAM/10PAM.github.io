@@ -75,14 +75,14 @@ function myFunction(typ3) {
     if (previous_ID !== null && typ3 !== previous_ID)
     {
         var x_previous = document.getElementById(previous_ID);
-        x_previous.style.display = "none";
+        x_previous.style.visibility = "hidden";
     }
 
     //Hide Previous visible project if not null
     if (previous_ID_Project !== null && typ3 !== previous_ID_Project)
     {
         var proj_previous = document.getElementById(previous_ID_Project);
-        proj_previous.style.display = "none";
+        proj_previous.style.visibility = "hidden";
     }
 
     // Obtain Desired Menu
@@ -90,12 +90,12 @@ function myFunction(typ3) {
     previous_ID = typ3;
 
     // Open or Close Desired Menu
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else if (x.style.display === "block") {
-        x.style.display = "none";
+    if (x.style.visibility === "hidden") {
+        x.style.visibility = "visible";
+    } else if (x.style.visibility === "visible") {
+        x.style.display = "hidden";
     } else {
-        x.style.display = "block";
+        x.style.display = "visible";
     }
   }
 
@@ -106,7 +106,7 @@ function myFunctionProject(typ3) {
     if (previous_ID_Project !== null && typ3 !== previous_ID_Project)
     {
         var x_previous = document.getElementById(previous_ID_Project);
-        x_previous.style.display = "none";
+        x_previous.style.visibility = "hidden";
     }
 
     // Find Element
@@ -114,10 +114,10 @@ function myFunctionProject(typ3) {
     previous_ID_Project = typ3;
 
     // Show or Hide Desired Element
-    if (x.style.display === "none") {
-        x.style.display = "block";
+    if (x.style.visibility === "hidden") {
+        x.style.visibility = "visible";
     } else {
-        x.style.display = "none";
+        x.style.visibility = "hidden";
     }
 }
 
