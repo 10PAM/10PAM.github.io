@@ -67,6 +67,7 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 100vh;
+            min-height: 100vh;
         }
 
         .Button_Projects_Container{
@@ -135,7 +136,6 @@
             font-size: 18px;
             color: rgb(255, 255, 255); 
             font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
-            display: block;
         }
 
         .landing_logo{
@@ -175,6 +175,7 @@
             flex-wrap: wrap;
             font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
             width: 50%;
+            flex: 1;
         }
 
         .about_me{
@@ -304,7 +305,7 @@
                 font-size: 14px;
             }
             
-            .Button_Projects_Container{
+            .Button_Projects_{
                 display: flex;
                 gap: 12px;
                 flex-direction: row;
@@ -338,7 +339,7 @@
                 font-size: 20px;
             }
             
-            .contact_buttons_container{
+            .contact_buttons_{
                 display: flex;
                 gap: 12px;
                 flex-direction: row;
@@ -366,7 +367,7 @@
                 float: right;
             }
 
-            .container{
+            .{
                 width: 100%;
                 
             }
@@ -396,8 +397,8 @@
           50% { border-color: #ffffff; }
         }
         
-        /* Container holding the image and the glow effects */
-        .glow-container {
+        /*  holding the image and the glow effects */
+        .glow- {
           position: relative;
           width: 300px; /* Match your image width */
           height: 300px; /* Match your image height */
@@ -410,17 +411,17 @@
         }
         
         /* Keeps the image on top of the background animations */
-        .glow-container img {
+        .glow- img {
           position: relative;
           width: calc(100% - 6px); /* Creates space for a 3px border */
           height: calc(100% - 6px);
           object-fit: cover;
-          border-radius: 13px; /* Slightly less than container to fit perfectly */
+          border-radius: 13px; /* Slightly less than  to fit perfectly */
           z-index: 2;
         }
 
         /* The underlying rotating gradient (Creates the sharp border) */
-        .glow-container::after {
+        .glow-::after {
           content: '';
           position: absolute;
           width: 150%; /* Oversized to ensure corners are fully covered while rotating */
@@ -436,7 +437,7 @@
         }
         
         /* The blurred duplicate (Creates the soft outer atmospheric glow) */
-        .glow-container::before {
+        .glow-::before {
           content: '';
           position: absolute;
           width: 150%;
