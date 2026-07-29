@@ -13,7 +13,26 @@
         body 
         {
             font-size: 14px;
-            
+            background-color: rgb(0, 0, 0);
+            overflow-y: scroll;
+            text-align: center;
+            vertical-align: middle;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Stacks elements vertically */
+            align-items: center; /* Aligns text vertically */
+            justify-content: center;
+            align-content: center; /* Modern CSS: Vertically centers block elements */
+            flex-wrap: wrap;
+            font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
+            width: 50%;
         }
 
         .Blog{
@@ -37,11 +56,13 @@
         .Header_1{
             font-size: 18px;
             color: rgb(255, 255, 255);
+            font-weight: normal;
         }
 
         .Header_1{
             font-size: 14px;
             color: rgb(255, 255, 255);
+            font-weight: normal;
         }
 
         .Paragraph{
@@ -92,33 +113,32 @@
     </style>
 </head>
 <body>
-    <section class="Blog" id="Blog" style="">
-        <div>
-            
-            <!--Blog 1 Start-->
-            <hr>
+    <div class="Container">
+        <!--Blog 1 Start-->
+        <hr>
 
-            <p class="Header_1">Understanding Graphics Programming</p>
-            <p class="Header_2">>Author: Mario Aguilera Piceno | Date: 02/20/2026 | Last Edited: 02/20/2026 | Last Editor: Mario Aguilera Piceno</p>
-
+        <section> 
+            <h2 class="Header_1">Understanding Graphics Programming</p>
+            <h2 class="Header_2">>Author: Mario Aguilera Piceno | Date: 02/20/2026 | Last Edited: 02/20/2026 | Last Editor: Mario Aguilera Piceno</p>
+    
             <br>
-                
+                    
             <img class="Paragraph_Image" onclick="window.open('./../../Images/Blog/1/A.jpg')" src="../../Images/Blog/1/A.jpg" alt="My Game Engine Progress" loading="lazy">
-                
+                    
             <p class="Paragraph">Developing a piece of software, even when following a teaching material can be quite time consuming but also rewarding when you get expected results. I am currently following along a book I purchased not long ago, <a style="text-decoration: none; color: #F5D327;" href="https://athena.ecs.csus.edu/~gordonvs/textC3E.html" target="_blank" rel="noreferrer noopener">Computer Graphics Programming in OpenGL with C++, 3rd Edition</a> by V. Scott Gordon and John Clevenger, and this is exactly the experience that I have found myself in while following along with the book page by page. In this, I have been learning to how to set up and link libraries through Visual Studio.</p>
-                
+                    
             <img class="Paragraph_Image" onclick="window.open('https://youtu.be/zvNH6MXb-tw?si=SqpqUZTSmcqSMIey')" src="../../Images/Blog/1/B.jpg" alt="Computer Programming in OpenGL with C++">
-
+    
             <p class="Paragraph">If I had to set an end goal for this book, it would be to learn how to further expand my knowledge and build upon my <a style="text-decoration: none; color: #CC17FF;" href="https://github.com/10PAM/Riova_Engine" target="_blank" rel="noreferrer noopener">Riova Game Engine</a> project as I improve my object oriented programming knowledge in C++. Graphics programming is one of the most intriguing things to me when it comes to understanding video game development. Given the fact that it is used extensively throughout the video game industry to render games and even movies, it is something that has become a passion for me to understand.</p>
-              
+                  
             <hr>
             <!--Blog 1 End-->
+        </section>
                     
-        </div>
+    </div>
         
-        <button class="Button_Projects" onclick="window.open('https://piceno.dev/mario', '_self');">Main Page</button>
-        <button class="Button_Projects" onclick="window.open('https://www.linkedin.com/in/mario-aguilera-piceno', '_self');">LinkedIn</button>
+    <button class="Button_Projects" onclick="window.open('https://piceno.dev/mario', '_self');">Main Page</button>
+    <button class="Button_Projects" onclick="window.open('https://www.linkedin.com/in/mario-aguilera-piceno', '_self');">LinkedIn</button>
         
-    </section>
 </body>
 </html>
