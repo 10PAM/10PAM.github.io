@@ -22,7 +22,7 @@
             justify-content: center;
             align-items: center;
         }
-
+        
         .container{
             text-align: center;
             display: flex;
@@ -35,6 +35,17 @@
             width: 50%;
         }
 
+        .Button_Projects_Container{
+                display: flex;
+                gap: 30px;
+                flex-direction: row;
+                align-items: center; /* Aligns text vertically */
+                justify-content: center;
+                flex-wrap: wrap;
+                text-align: center;
+                margin-top: 10px;
+        }
+        
         .Blog{
             font-size: 14px;
             width: 100%; 
@@ -147,9 +158,11 @@
         </section>
                     
     </div>
-        
-    <button class="Button_Projects" onclick="window.open('https://piceno.dev/mario', '_self');">Main Page</button>
-    <button class="Button_Projects" onclick="window.open('https://www.linkedin.com/in/mario-aguilera-piceno', '_self');">LinkedIn</button>
+    
+    <div class="Button_Projects_Container">
+        <button class="Button_Projects" onclick="window.open('https://piceno.dev/mario', '_self');">Main Page</button>
+        <button class="Button_Projects" onclick="window.open('https://www.linkedin.com/in/mario-aguilera-piceno', '_self');">LinkedIn</button>
+    </div>
         
 </body>
 </html>
