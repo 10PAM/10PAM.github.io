@@ -111,6 +111,11 @@
             border-bottom: 4px solid #69001E;
         }
 
+        .PDF_Embed{
+            width="100%";
+            height="600px";
+        }
+
         @media (max-width: 1200px) {
             
             .Blog{
@@ -141,6 +146,11 @@
                 font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
                 width: 100%;
             }
+
+            .PDF_Embed{
+                width="70%";
+                height="600px";
+            }
         }
     </style>
 </head>
@@ -152,7 +162,7 @@
             <h2 class="Header_2">Author: Mario Aguilera Piceno</h2>
 
             <div class="Sliced_Div">
-                <object data="./../../Documents/Research/1.pdf" type="application/pdf" width="70%" height="600px">
+                <object class="PDF_Embed" data="./../../Documents/Research/1.pdf" type="application/pdf">
                     <p>Your browser does not support embedded PDFs. 
                        <a href="./../../Documents/Research/1.pdf">Download the PDF instead</a>.
                     </p>
