@@ -61,40 +61,68 @@
 </head>
 <body>
     <style>
-    
-       *{
+    * {
             touch-action: manipulation;
-        }
-    
-        .title{
-            text-align: center;
-        }
-
-        .about_me{
-            text-align: center;
-            width: 45%;
         }
 
         ::selection {
-            background: #8f870e;
-        }
-        
-        body 
-        {
-            background-size: contain;
-            height: 100%;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-position: 50% 0;
-            background-position-y: bottom;
-            background-color: rgb(0, 0, 0);
-            overflow-y: scroll;
+            background: rgba(105, 0, 30, 0.99);
         }
 
+        body 
+        {
+            background-color: rgb(0, 0, 0);
+            overflow-y: scroll;
+            text-align: center;
+            vertical-align: middle;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Button_Projects_Container{
+                display: flex;
+                gap: 30px;
+                flex-direction: row;
+                align-items: center; /* Aligns text vertically */
+                justify-content: center;
+                flex-wrap: wrap;
+                text-align: center;
+                margin-top: 10px;
+        }
+        
         .Button_Projects{
-            padding-right: 0%;
             color: #ffffff;
             outline: none;
+            background-color: rgba(119, 20, 20, 0);
+            border-color: #ffffff;
+            border-radius: 2px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 18px;
+            width: 210px; 
+            height: 30px;
+        }
+        
+        .intro{
+            margin-top: 1px;
+            margin-bottom: 1px;
+            font-size: 40px;
+            /*overflow: hidden;  Ensures the content is not revealed until the animation 
+            border-right: .1em solid #ffffff;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: 
+            typing 2s steps(40), blink-caret .75s step-end infinite;*/
+            font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+        }
+    
+        .Badges{
+            padding-right: 0%;
+            color: #ffffff;
             background-color: rgba(119, 20, 20, 0);
             border-color: #ffffff;
             border-radius: 1%;
@@ -109,84 +137,395 @@
         .footer {
             position: relative;
             width: auto;
-            height: 35%;
+            height: 300px;
             bottom: 0 !important;
             background-color: transparent;
-            margin-top: 100vh;
             text-align: center;
-            display:grid;
-            place-content:center;
+            display: grid;
+            place-content: center;
+            font-size: 18px;
+            color: rgb(255, 255, 255); 
+            font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
+            margin-top: 200vh;
+            display: none;
         }
 
-        .intro{
-            text-align: center;
-            margin: auto;
-            width: 90%;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: 
-            typing 2s
+        .landing_logo{
+            vertical-align: center; 
+            -webkit-user-drag: none;
+            width: 170px; 
+            height: 170px; 
+            margin-top: 24px; 
+            margin-bottom: 25px;
+            cursor: pointer;
+
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111; /* Dark background enhances the glow */
+            border-radius: 16px;
+            overflow: hidden; /* Clips the sharp corners of the rotating gradient */
         }
 
-        @keyframes cursor{
-            50% {border-color: transparent;}
+        .contact_buttons_container{
+                display: flex;
+                gap: 30px;
+                flex-direction: row;
+                align-items: center; /* Aligns text vertically */
+                justify-content: center;
+                flex-wrap: wrap;
+                text-align: center;
         }
         
-        @keyframes typing{
-            from {width: 0;}
+        .contact_buttons{
+            width: 50px;
+            height: 50px;
+            cursor: pointer; 
+            -webkit-user-drag: none;
+        }
+
+        .container{
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Stacks elements vertically */
+            align-items: center; /* Aligns text vertically */
+            justify-content: center;
+            align-content: center; /* Modern CSS: Vertically centers block elements */
+            flex-wrap: wrap;
+            font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
+            width: 50%;
+        }
+
+        .about_me{
+            width: 75%; 
+            text-align: center;
+            font-size: 18px; 
+            color: rgb(255, 255, 255);
+        }
+
+        .SubHeader{
+            font-size: 24px; 
+            color: rgb(255, 255, 255);
+            text-decoration: none; 
+            font-weight: normal;
+            border-bottom: 4px solid #69001E;
+            margin-bottom: 5px;
+        }
+
+        .General_Header_1{
+            font-size: 20px; 
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+        .General_Header_2{
+            font-size: 16px; 
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+        .Product_Logo{
+            cursor: pointer; 
+            width: 100px; 
+            height: 100px; 
+            -webkit-user-drag: none;
+        }
+
+        .SubProduct_Logo{
+            cursor: pointer; 
+            width: 25px; 
+            height: 25px; 
+            -webkit-user-drag: none;
+        }
+
+        .Body_Logo{
+            cursor: pointer; 
+            width: 100px; 
+            height: 100px; 
+            -webkit-user-drag: none;
+        }
+
+        .Certification_Logo{
+            cursor: pointer; 
+            width: 100px; 
+            height: 100px; 
+            -webkit-user-drag: none;
+        }
+
+        .Sub_Head_Page{
+            display: none;
+            width: 100%;
+            align-content: center;
+            vertical-align: middle;
+        }
+
+        .Skills_H1{
+            font-size: 20px; 
+            color: rgb(255, 255, 255);
+            text-decoration: none; 
+        }
+
+        .Skills_H2{
+            font-size: 18px; 
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+
+        .Skills_H2_L{
+            font-size: 18px; 
+            color: rgb(255, 255, 255);
+            float: left;
+        }
+
+        .Skills_H2_R{
+            font-size: 18px; 
+            color: rgb(255, 255, 255);
+            float: right;
+        }
+
+        .Project_Button_Style{
+            border-radius: 50%; 
+            cursor: pointer; 
+            -webkit-user-drag: none; 
+            width: 100px; 
+            height: 100px;
+        }
+
+        .Project_Button_Style:hover{
+            box-shadow: 0px 0px 5px rgb(255, 255, 255);
+        }
+
+        .Horizontal_Line{
+            width: 100%;
+            display: none;
+        }
+
+        .Top_Header{
+            background-color: rgb(53, 53, 53, 0);
+            width: 100%;
+        }
+        
+        .top_header_logo{
+            -webkit-user-drag: none; 
+            width: 190px; 
+            height: 45px;
+            float: none;
+            cursor: pointer; 
+        }
+
+        .sliced_div{
+            border-bottom: 4px solid #69001E;
+        }
+
+        @media (max-width: 1200px) {
+            
+            .about_me{
+                font-size: 14px;
+            }
+            
+            .Button_Projects_{
+                display: flex;
+                gap: 12px;
+                flex-direction: row;
+                align-items: center; /* Aligns text vertically */
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-top: 5px;
+            }
+            
+            .Button_Projects{
+                color: #ffffff;
+                outline: none;
+                background-color: rgba(119, 20, 20, 0);
+                border-color: #ffffff;
+                border-radius: 2px;
+                cursor: pointer;
+                font-size: 12px; 
+                width: 100px; 
+                height: 35px;
+            }
+            
+            body 
+            {
+                background-color: rgb(0, 0, 0);
+                overflow-y: scroll;
+                text-align: center;
+                vertical-align: middle;
+            }
+            
+            .intro{
+                font-size: 22px;
+            }
+
+            .landing_logo{
+                width: 85px;
+                height: 85px;
+            }
+            
+            .contact_buttons_container{
+                display: flex;
+                gap: 12px;
+                flex-direction: row;
+                align-items: center; /* Aligns text vertically */
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .contact_buttons{
+                width: 40px;
+                height: 40px;
+                cursor: pointer; 
+                -webkit-user-drag: none;
+            }
+            
+            .Skills_H2_L{
+                font-size: 12px; 
+                color: rgb(255, 255, 255);
+                float: left;
+            }
+    
+            .Skills_H2_R{
+                font-size: 12px; 
+                color: rgb(255, 255, 255);
+                float: right;
+            }
+
+            .container{
+                width: 100%;
+                
+            }
+
+            .top_header_logo{
+                width: 110px; 
+                height: 25px;
+            }
+        }
+
+        .Skill_Style{
+            background-color: #69001E;
+            border: 1px solid rgb(166, 166, 166);
+            margin-bottom: 5px;
+        }
+
+            
+
+        /* The typing effect */
+        @keyframes typing {
+          from { width: 0ch } to { width: 40ch }
+        }
+        
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+          from, to { border-color: transparent }
+          50% { border-color: #ffffff; }
+        }
+        
+        /* Keeps the image on top of the background animations */
+        .landing_logo img {
+          position: relative;
+          width: calc(100% - 6px); /* Creates space for a 3px border */
+          height: calc(100% - 6px);
+          object-fit: cover;
+          border-radius: 13px; /* Slightly less than  to fit perfectly */
+          z-index: 2;
+        }
+
+        /* The underlying rotating gradient (Creates the sharp border) */
+        .landing_logo::after {
+          content: '';
+          position: absolute;
+          width: 150%; /* Oversized to ensure corners are fully covered while rotating */
+          height: 150%;
+          background: conic-gradient(
+            #f5e042, 
+            #f5e042, 
+            #f5a142, 
+            #f5a142
+          );
+          animation: rotateGlow 4s linear infinite;
+          z-index: 1;
+        }
+        
+        /* The blurred duplicate (Creates the soft outer atmospheric glow) */
+        .landing_logo::before {
+          content: '';
+          position: absolute;
+          width: 150%;
+          height: 150%;
+          background: conic-gradient(
+            #ff007f, 
+            #7f00ff, 
+            #00f0ff, 
+            #ff007f
+          );
+          animation: rotateGlow 4s linear infinite;
+          filter: blur(25px); /* Adjust this value to make the glow wider or softer */
+          opacity: 0.8; /* Tones down the glow intensity */
+          z-index: 0;
+        }
+
+        /* Keyframe animation to spin the gradient */
+        @keyframes rotateGlow {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
         }
 
     </style>
     
     <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Piceno</h1>
     
-    <div class="container" style="margin: auto; text-align: center; font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;">  
+    <div class="container">  
 
-        <div class="intro_anim" id="title">
-          
-            <img onclick="window.location.reload();" class="landing_logo" src="Images/Piceno_Text_Light.svg" alt="Piceno" style="cursor: pointer; -webkit-user-drag: none; width: 60%; height: 60%;">
-        
+        <div class="Top_Header">
+            <img class="top_header_logo" src="Images/Piceno_Text_Light.png" onclick="window.open('https://piceno.dev', '_self')" alt="Mario Aguilera Piceno - Software Developer - Yakima, WA">  
         </div>
 
-        <div class="about_me" style="width: 100%; margin: auto; text-align: center;">
+        <div class="about_me">
 
             <hr>
-            <p style="font-size: 2.6vw; color: rgb(255, 255, 255);">Creating Software with Passion.</p>
+            <h2 class="General_Header_1">Creating Software with Passion.</h2>
             <hr>
             
         </div>
 
-        <section style="width: 100%; height: 5%;" class="buttons">
-            <div class="button_container" style="background-color: transparent;">
+        <section class="Button_Projects_Container">
+            <div class="Button_Projects">
 
-                <button class="Button_Projects" onclick="myFunction('Services')" style="cursor: pointer; font-size: 1.8vw; vertical-align: left; margin-top:1%; width: 24%; height: 20%;">Software</button>
-                <button class="Button_Projects" onclick="myFunction('Projects')" style="cursor: pointer;  font-size: 1.8vw; vertical-align: left; margin-top:1%; width: 24%; height: 20%;">Projects</button>
-                <button class="Button_Projects" onclick="myFunction('About')" style="cursor: pointer;  font-size: 1.8vw; vertical-align: left; margin-top:1%; width: 24%; height: 20%;">About</button>
-                <button class="Button_Projects" onclick="myFunction('Contact')" style="cursor: pointer;  font-size: 1.8vw; vertical-align: left; margin-top:1%; width: 24%; height: 20%;">Contact</button>
+                <button onclick="myFunction('Services')">Software</button>
+                <button onclick="myFunction('Projects')">Projects</button>
+                <button onclick="myFunction('About')">About</button>
+                <button onclick="myFunction('Contact')">Contact</button>
             
             </div>
         </section>
 
-        <section class="Services" id="Services" style="width: 90%; margin: auto; text-align: center; display: none;">
+        <section class="Sliced_Div">
             <div>
 
-                <b style="font-size: 3.4vw; color: rgb(255, 255, 255);">Our Software</b>
+                <h2 class="General_Header_1">Our Software</h2>
 
                 <!--Riova Start-->
                 <div>
                     
                     <hr>
 
-                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Riova</p>
+                    <h2 class="General_Header_2">Riova</h2>
                     
-                    <img style="cursor: pointer; width: 15%; height: 15%; margin-bottom: 2%;" onclick="window.open('https://github.com/10PAM/Riova')" src="Images/Riova.png" alt="Riova Logo">
+                    <img class="Product_Logo" onclick="window.open('https://github.com/10PAM/Riova')" src="Images/Riova.png" alt="Riova Logo">
                     
                     <div>
-                        <img onclick="window.open('https://isocpp.org/')" class="landing_logo" src="Images/CPP.png" alt="Portrait" style="position: relative; cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%;  margin-right: 3%;">
-                        <img onclick="window.open('https://www.c-language.org/')" class="landing_logo" src="Images/C.png" alt="Portrait" style="cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%;">
+                        <img class="SubProduct_Logo" onclick="window.open('https://isocpp.org/')" class="landing_logo" src="Images/CPP.png" alt="Portrait">
+                        <img class="SubProduct_Logo" onclick="window.open('https://www.c-language.org/')" class="landing_logo" src="Images/C.png" alt="Portrait">
                     </div>
                     
-                    <p style="font-size: 2.4vw; color: rgb(255, 255, 255);">Open source game engine: Riova. Core engine behind our titles.</p>
+                    <p class="General_Header_2">Open source game engine: Riova. Core engine behind our titles.</p>
 
                     <hr>
                 </div>
@@ -197,33 +536,33 @@
 
         <!--About Start-->
 
-        <section class="About" id="About" style="width: 90%; margin: auto; text-align: center; display: none; ">
+        <section class="About" id="About">
 
             <div>
 
-                <b style="font-size: 3.4vw; color: rgb(255, 255, 255);">About</b>
+                <h2 class="General_Header_1">About</h2>
 
                 <hr>
-                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Founder & CEO | Mario Aguilera Piceno</p>
-                <img class="landing_logo" src="Images/Portrait.jpg" onclick="window.open('https://piceno.dev/mario', '_self')" alt="Mario Aguilera Piceno - CEO @ Piceno - Yakima, WA" style="cursor: pointer; vertical-align: center; -webkit-user-drag: none; width: 12%; height: 12%; margin-top: 1%; margin-bottom: 1%;">
+                <h3 class="General_Header_2">Founder & CEO | Mario Aguilera Piceno</h3>
+                <img class="Body_Logo" src="Images/Portrait.jpg" onclick="window.open('https://piceno.dev/mario', '_self')" alt="Mario Aguilera Piceno - CEO @ Piceno - Yakima, WA">
                 
                 <hr>
-                <img style="width: 10%; height: 10%;" src="Images/Logo_Main.png" alt="Our Logo">
-                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Established: 2024</p>
-                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">HQ: Yakima, WA, United States</p>
-                <p style="font-size: 2.6vw; font-weight: normal; color: rgb(255, 255, 255);">We are a company that was founded with the intention of creating and providing software services.</p>
+                <img class="Body_Logo" src="Images/Logo_Main.png" alt="Our Logo">
+                <p class="General_Header_2">Established: 2024</p>
+                <p class="General_Header_2">HQ: Yakima, WA, United States</p>
+                <p class="General_Header_2">We are a company that was founded with the intention of creating and providing software services.</p>
                 <hr>
                 
                 <div>
 
-                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Business License</p>
+                    <h3 class="General_Header_1">Business License</h3>
                     
-                    <img style="width: 22%; height: 22%;" src="Images/Combined_1.png" alt="WA Dep of Rev Logo">
+                    <img class="Body_Logo" src="Images/Combined_1.png" alt="WA Dep of Rev Logo">
                    
-                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">ID #: 605 456 394</p>
-                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Issuer: WA Dept. of Revenue + WA Secretary of State</p>
-                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Issued: March 2024</p>
-                    <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Location: Yakima, WA, United States</p>
+                    <p class="General_Header_2">ID #: 605 456 394</p>
+                    <p class="General_Header_2">Issuer: WA Dept. of Revenue + WA Secretary of State</p>
+                    <p class="General_Header_2">Issued: March 2024</p>
+                    <p class="General_Header_2">Location: Yakima, WA, United States</p>
                     <hr>
 
                 </div>
@@ -236,27 +575,27 @@
         
         <!--Contact Start-->
 
-        <section class="Contact" id="Contact" style="width: 90%; margin: auto; text-align: center; display: none; ">
+        <section class="Contact" id="Contact">
             <div>
 
-                <b style="font-size: 3.4vw; color: rgb(255, 255, 255);">Contact</b>
+                <h2 class="General_Header_1">Contact</h2>
 
                 <hr>
                 
-                <img style="width: 10%; height: 10%;" src="Images/Logo_Main.png" alt="Piceno">
+                <img class="Body_Logo" src="Images/Logo_Main.png" alt="Piceno">
 
                 <br>
 
                 <hr>
-                <img onclick="window.open('https://www.instagram.com/picenollc/')" class="landing_logo" src="Images/Instagram.png" alt="Portrait" style="cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%;  margin-right: 3%;">
+                <img class="landing_logo" onclick="window.open('https://www.instagram.com/picenollc/')" >
 
-                <img onclick="window.open('https://www.facebook.com/picenollc/')" class="landing_logo" src="Images/Facebook.png" alt="Portrait" style="cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%;  margin-right: 3%;">
+                <img class=landing_logo" onclick="window.open('https://www.facebook.com/picenollc/')" class="landing_logo" src="Images/Facebook.png" alt="Portrait">
                 
-                <img onclick="window.open('https://www.youtube.com/@picenollc')" class="landing_logo" src="Images/YouTube.png" alt="Portrait" style="cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%;">
+                <img class="landing_logo" onclick="window.open('https://www.youtube.com/@picenollc')" class="landing_logo" src="Images/YouTube.png" alt="Portrait">
                 <hr>
                 
-                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Email: <a style="color: #F5D327; text-decoration:none; cursor: pointer;" href="mailto:contact@piceno.dev" target="_blank">contact@piceno.dev</a></p>
-                <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">Phone: <a style="color: #F5D327; text-decoration:none; cursor: pointer;" href="tel:+12092700695">(209) 270-0695</a></p>
+                <p class="General_Header_2">Email: <a style="color: #F5D327; text-decoration:none; cursor: pointer;" href="mailto:contact@piceno.dev" target="_blank">contact@piceno.dev</a></p>
+                <p class="General_Header_2">Phone: <a style="color: #F5D327; text-decoration:none; cursor: pointer;" href="tel:+12092700695">(209) 270-0695</a></p>
                 
                 <hr>
 
@@ -268,24 +607,20 @@
 
         <!--Projects Start-->
 
-        <section class="Projects" id="Projects" style="width: 90%; margin: auto; text-align: center; display: none; ">
-            <div>
-                <b style="font-size: 3.4vw; color: rgb(255, 255, 255);">Our Current and Previous Projects</b>
-            </div>
-
+        <section class="Projects" id="Projects">
+            <h2 class="General_Header_1">Current and Previous Projects</h2
+           
             <!--Project 1 Start-->
 
             <hr>
             
-            <p style="font-size: 2.8vw; color: rgb(255, 255, 255);">CIVIPIT</p>
+            <p class="General_Header_2">CIVIPIT</p>
             
-            <img style="cursor: pointer; width: 15%; height: 15%; margin-bottom: 2%;" onclick="window.open('https://github.com/10PAM/CIVIPIT')" src="Images/CIVIPIT.png" alt="CIVIPIT Logo">
-
-            <div>
-                <img onclick="window.open('https://www.python.org/')" class="landing_logo" src="Images/Python.png" alt="Portrait" style="position: relative; cursor: pointer; -webkit-user-drag: none; width: 4.5%; height: 4.5%;">
-            </div>
+            <img class="landing_logo" onclick="window.open('https://github.com/10PAM/CIVIPIT')" src="Images/CIVIPIT.png" alt="CIVIPIT Logo">
             
-            <p style="font-size: 2.4vw; color: rgb(255, 255, 255);">Open source project: CIVIPIT (Commonly Identified Viral Illnesses Predicting Intelligent Tool). It is a project programmed in python that uses pre-defined values and user based questions to determine the most probable common viral illness a user may have.</p>
+            <img class="landing_logo" onclick="window.open('https://www.python.org/')" class="landing_logo" src="Images/Python.png" alt="Portrait">
+            
+            <p class="General_Header_2">Open source project: CIVIPIT (Commonly Identified Viral Illnesses Predicting Intelligent Tool). It is a project programmed in python that uses pre-defined values and user based questions to determine the most probable common viral illness a user may have.</p>
 
             <hr>
 
