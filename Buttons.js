@@ -1,17 +1,31 @@
 var previous_ID = null;
-function myFunction(typ3)
-{
-    if (previous_ID != null && typ3 != previous_ID)
+//Handle Menu Buttons' Inputs 
+function myFunction(typ3) {
+
+    // Hide Previous Open Menus
+    if (previous_ID !== null && typ3 !== previous_ID)
     {
         var x_previous = document.getElementById(previous_ID);
         x_previous.style.display = "none";
     }
 
+    //Hide Previous visible project if not null
+    if (previous_ID_Project !== null && typ3 !== previous_ID_Project)
+    {
+        var proj_previous = document.getElementById(previous_ID_Project);
+        proj_previous.style.display = "none";
+    }
+
+    // Obtain Desired Menu
     var x = document.getElementById(typ3);
     previous_ID = typ3;
-    if (x.style.display == "none") {
-      x.style.display = "block";
+
+    // Open or Close Desired Menu
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else if (x.style.display === "block") {
+        x.style.display = "none";
     } else {
-      x.style.display = "none";
+        x.style.display = "block";
     }
-}
+  }
