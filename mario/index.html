@@ -37,6 +37,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="mask-icon" type="image/svg" href="Images/safari-pinned-tab.svg">
     <link rel="canonical" href="https://piceno.dev/mario/"/>
+    <link rel="stylesheet" href="../../Styles/main.css">
     
     <script type="application/ld+json"> {
         "@context": "https://schema.org",
@@ -45,449 +46,6 @@
         "url": "https://piceno.dev/mario/"
     } </script>
     
-    <style>
-        * {
-            touch-action: manipulation;
-        }
-
-        ::selection {
-            background: rgba(105, 0, 30, 0.99);
-        }
-
-        body 
-        {
-            background-color: rgb(0, 0, 0);
-            overflow-y: scroll;
-            text-align: center;
-            vertical-align: middle;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .Button_Projects_Container{
-            display: flex;
-            gap: 30px;
-            flex-direction: row;
-            align-items: center; /* Aligns text vertically */
-            justify-content: center;
-            flex-wrap: wrap;
-            text-align: center;
-            margin-top: 10px;
-        }
-        
-        .Button_Projects{
-            color: #ffffff;
-            outline: none;
-            background-color: rgba(119, 20, 20, 0);
-            border-color: #ffffff;
-            border-radius: 2px;
-            text-align: center;
-            cursor: pointer;
-            font-size: 18px;
-            width: 210px; 
-            height: 30px;
-            word-break: break-all;
-            overflow-wrap: break-word;
-            overflow-wrap: break-word;
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-        
-        .intro{
-            margin-top: 1px;
-            margin-bottom: 1px;
-            font-size: 40px;
-            /*overflow: hidden;  Ensures the content is not revealed until the animation 
-            border-right: .1em solid #ffffff;
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: 
-            typing 2s steps(40), blink-caret .75s step-end infinite;*/
-            font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
-            color: rgb(255, 255, 255);
-            font-weight: normal;
-        }
-    
-        .Badges{
-            padding-right: 0%;
-            color: #ffffff;
-            background-color: rgba(119, 20, 20, 0);
-            border-color: #ffffff;
-            border-radius: 1%;
-            text-align: center;
-            position: relative;
-        }
-
-        .Button_Text_Alignment{
-            text-align: center;
-        }
-
-        .footer {
-            position: relative;
-            width: auto;
-            height: 25px;
-            bottom: 0 !important;
-            background-color: transparent;
-            text-align: center;
-            display: grid;
-            place-content: center;
-            font-size: 18px;
-            color: rgb(255, 255, 255); 
-            font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
-            display: block;
-        }
-
-        .landing_logo{
-            vertical-align: center; 
-            -webkit-user-drag: none;
-            width: 170px; 
-            height: 170px; 
-            margin-top: 24px; 
-            margin-bottom: 25px;
-            cursor: pointer;
-
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #111; /* Dark background enhances the glow */
-            border-radius: 16px;
-            overflow: hidden; /* Clips the sharp corners of the rotating gradient */
-        }
-
-        .contact_buttons_container{
-                display: flex;
-                gap: 30px;
-                flex-direction: row;
-                align-items: center; /* Aligns text vertically */
-                justify-content: center;
-                flex-wrap: wrap;
-                text-align: center;
-        }
-        
-        .contact_buttons{
-            width: 50px;
-            height: 50px;
-            cursor: pointer; 
-            -webkit-user-drag: none;
-        }
-
-        .container{
-            text-align: center;
-            display: flex;
-            flex-direction: column; /* Stacks elements vertically */
-            align-items: center; /* Aligns text vertically */
-            justify-content: center;
-            align-content: center; /* Modern CSS: Vertically centers block elements */
-            flex-wrap: wrap;
-            font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
-            width: 50%;
-        }
-
-        .about_me{
-            width: 75%; 
-            text-align: center;
-            font-size: 18px; 
-            color: rgb(255, 255, 255);
-        }
-
-        .SubHeader{
-            font-size: 24px; 
-            color: rgb(255, 255, 255);
-            text-decoration: none; 
-            font-weight: normal;
-            border-bottom: 4px solid #69001E;
-            margin-bottom: 5px;
-        }
-
-        .General_Header_1{
-            font-size: 20px; 
-            color: rgb(255, 255, 255);
-            text-decoration: none;
-            font-weight: normal;
-            word-break: break-all;
-            overflow-wrap: break-word;
-            overflow-wrap: break-word;
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        .General_Header_2{
-            font-size: 16px; 
-            color: rgb(255, 255, 255);
-            text-decoration: none;
-            font-weight: normal;
-            word-break: break-all;
-            overflow-wrap: break-word;
-            overflow-wrap: break-word;
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        .Employment_Logo{
-            cursor: pointer; 
-            width: 100px; 
-            height: 100px; 
-            -webkit-user-drag: none;
-        }
-
-        .Education_Logo{
-            cursor: pointer; 
-            width: 100px; 
-            height: 100px; 
-            -webkit-user-drag: none;
-        }
-
-        .Education_Logo_CWU{
-            cursor: pointer; 
-            width: 150px; 
-            height: 70px; 
-            -webkit-user-drag: none;
-        }
-
-        .Certification_Logo{
-            cursor: pointer; 
-            width: 100px; 
-            height: 100px; 
-            -webkit-user-drag: none;
-        }
-
-        .Sub_Head_Page{
-            display: none;
-            width: 100%;
-            align-content: center;
-            vertical-align: middle;
-        }
-
-        .Skills_H1{
-            font-size: 20px; 
-            color: rgb(255, 255, 255);
-            text-decoration: none; 
-            word-break: break-all;
-            overflow-wrap: break-word;
-            overflow-wrap: break-word;
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow: hidden;
-            
-        }
-
-        .Skills_H2{
-            font-size: 18px; 
-            color: rgb(255, 255, 255);
-            text-decoration: none;
-        }
-
-        .Skills_H2_L{
-            font-size: 18px; 
-            color: rgb(255, 255, 255);
-            float: left;
-        }
-
-        .Skills_H2_R{
-            font-size: 18px; 
-            color: rgb(255, 255, 255);
-            float: right;
-        }
-
-        .Project_Button_Style{
-            border-radius: 50%; 
-            cursor: pointer; 
-            -webkit-user-drag: none; 
-            width: 100px; 
-            height: 100px;
-        }
-
-        .Project_Button_Style:hover{
-            box-shadow: 0px 0px 5px rgb(255, 255, 255);
-        }
-
-        .Horizontal_Line{
-            width: 100%;
-            display: none;
-        }
-
-        .Top_Header{
-            background-color: rgb(53, 53, 53, 0);
-            width: 100%;
-        }
-        
-        .top_header_logo{
-            -webkit-user-drag: none; 
-            width: 190px; 
-            height: 45px;
-            float: none;
-            cursor: pointer; 
-        }
-
-        .sliced_div{
-            border-bottom: 4px solid #69001E;
-        }
-
-        @media (max-width: 1200px) {
-            
-            .about_me{
-                font-size: 14px;
-            }
-            
-            .Button_Projects_Container{
-                display: flex;
-                gap: 12px;
-                flex-direction: row;
-                align-items: center; /* Aligns text vertically */
-                justify-content: center;
-                flex-wrap: wrap;
-                margin-top: 5px;
-            }
-            
-            .Button_Projects{
-                color: #ffffff;
-                outline: none;
-                background-color: rgba(119, 20, 20, 0);
-                border-color: #ffffff;
-                border-radius: 2px;
-                cursor: pointer;
-                font-size: 12px; 
-                width: 100px; 
-                height: 35px;
-            }
-            
-            body 
-            {
-                background-color: rgb(0, 0, 0);
-                overflow-y: scroll;
-                text-align: center;
-                vertical-align: middle;
-            }
-            
-            .intro{
-                font-size: 22px;
-            }
-
-            .landing_logo{
-                width: 85px;
-                height: 85px;
-            }
-            
-            .contact_buttons_container{
-                display: flex;
-                gap: 12px;
-                flex-direction: row;
-                align-items: center; /* Aligns text vertically */
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            
-            .contact_buttons{
-                width: 40px;
-                height: 40px;
-                cursor: pointer; 
-                -webkit-user-drag: none;
-            }
-            
-            .Skills_H2_L{
-                font-size: 12px; 
-                color: rgb(255, 255, 255);
-                float: left;
-            }
-    
-            .Skills_H2_R{
-                font-size: 12px; 
-                color: rgb(255, 255, 255);
-                float: right;
-            }
-
-            .container{
-                width: 100%;
-                
-            }
-
-            .top_header_logo{
-                width: 110px; 
-                height: 25px;
-            }
-        }
-
-        .Skill_Style{
-            background-color: #69001E;
-            border: 1px solid rgb(166, 166, 166);
-            margin-bottom: 5px;
-        }
-
-            
-
-        /* The typing effect */
-        @keyframes typing {
-          from { width: 0ch } to { width: 40ch }
-        }
-        
-        /* The typewriter cursor effect */
-        @keyframes blink-caret {
-          from, to { border-color: transparent }
-          50% { border-color: #ffffff; }
-        }
-        
-        /* Keeps the image on top of the background animations */
-        .landing_logo img {
-          position: relative;
-          width: calc(100% - 6px); /* Creates space for a 3px border */
-          height: calc(100% - 6px);
-          object-fit: cover;
-          border-radius: 13px; /* Slightly less than  to fit perfectly */
-          z-index: 2;
-        }
-
-        /* The underlying rotating gradient (Creates the sharp border) */
-        .landing_logo::after {
-          content: '';
-          position: absolute;
-          width: 150%; /* Oversized to ensure corners are fully covered while rotating */
-          height: 150%;
-          background: conic-gradient(
-            #f5e042, 
-            #f5e042, 
-            #f5a142, 
-            #f5a142
-          );
-          animation: rotateGlow 4s linear infinite;
-          z-index: 1;
-        }
-        
-        /* The blurred duplicate (Creates the soft outer atmospheric glow) */
-        .landing_logo::before {
-          content: '';
-          position: absolute;
-          width: 150%;
-          height: 150%;
-          background: conic-gradient(
-            #ff007f, 
-            #7f00ff, 
-            #00f0ff, 
-            #ff007f
-          );
-          animation: rotateGlow 4s linear infinite;
-          filter: blur(25px); /* Adjust this value to make the glow wider or softer */
-          opacity: 0.8; /* Tones down the glow intensity */
-          z-index: 0;
-        }
-
-        /* Keyframe animation to spin the gradient */
-        @keyframes rotateGlow {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
-        
-    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7903C1LBGP"></script>
     <script>
@@ -497,12 +55,8 @@
     
       gtag('config', 'G-7903C1LBGP');
     </script>
-    
 </head>
 <body>
-
-    
-
     <div class="container">  
 
         <div class="Top_Header">
@@ -572,7 +126,7 @@
 
                 <hr class="Horizontal_Line">
 
-                <div class="sliced_div">
+                <div class="sliced_div_F">
                     <p class="General_Header_1">Founder - Piceno, Full-Time </p>
                     <img class="Employment_Logo" onclick="window.open('https://piceno.dev')" src="Images/Logo_Main.png" alt="Piceno Logo">
                     <p class="General_Header_2">March 30, 2024 to Present | Yakima, WA, United States</p>
@@ -581,7 +135,7 @@
                 
                 <hr class="Horizontal_Line">
                 
-                <div class="sliced_div">
+                <div class="sliced_div_F">
                     <p class="General_Header_1">BHA Shift Coordinator - Comprehensive Healthcare, Full-Time</p>
                     <img class="Employment_Logo" onclick="window.open('https://comphc.org/')" src="Images/CHC.jpg" alt="Comprehensive Healthcare Logo">
                     <p class="General_Header_2">July 13, 2025 to Present | Yakima, WA, United States</p>
@@ -590,7 +144,7 @@
 
                 <hr class="Horizontal_Line">
                 
-                <div class="sliced_div">
+                <div class="sliced_div_F">
                     <p class="General_Header_1">Behavioral Health Associate - Comprehensive Healthcare, Full-Time</p>
                     <img class="Employment_Logo" onclick="window.open('https://comphc.org/')" src="Images/CHC.jpg" alt="Comprehensive Healthcare Logo">
                     <p class="General_Header_2">July 22, 2024 to Present | Yakima, WA, United States</p>
@@ -599,7 +153,7 @@
 
                 <hr class="Horizontal_Line">
 
-                <div class="sliced_div">
+                <div class="sliced_div_F">
                     <p class="General_Header_1">Sales Associate - Sears, Part-Time </p>
                     <img class="Employment_Logo" onclick="window.open('https://sears.com')" src="Images/Sears.jpg" alt="Sears Logo">
                     <p class="General_Header_2">October 17, 2023 to March 29, 2024 | Union Gap, WA, United States</p>
@@ -630,7 +184,7 @@
 
                 <hr class="Horizontal_Line">
                 
-                <div class="sliced_div">
+                <div class="sliced_div_F">
                     <p class="General_Header_1">Central Washington University</p>
                     <img class="Education_Logo_CWU" onclick="window.open('https://www.cwu.edu')" src="Images/CWU_Logo3.png" alt="CWU">
                     <p class="General_Header_2">Bachelor of Science in Computer Science | In Progress | September 2024 to June 2028 | Ellensburg, WA, United States</p>
@@ -639,7 +193,7 @@
 
                 <hr class="Horizontal_Line">
 
-                <div class="sliced_div">
+                <div class="sliced_div_F">
                     <p class="General_Header_1">Yakima Valley Technical Skills Center</p>
                     <img class="Education_Logo" onclick="window.open('https://yvtech.ysd7.org/')" src="Images/YVTECH_Logo.png" alt="YVTECH Logo">
                     <p class="General_Header_2">Certificate of Completion in Cybersecurity I & II | Completed | August 2022 to June 2024 | Yakima, WA, United States</p>
@@ -648,7 +202,7 @@
 
                 <hr class="Horizontal_Line">
                 
-                <div class="sliced_div">
+                <div class="sliced_div_F">
                     <p class="General_Header_1">A. C. Davis Senior High School</p>
                     <img class="Education_Logo" onclick="window.open('https://davis.ysd7.org/')" src="Images/Davis_Logo.png" alt="A.C. Davis High School Logo">
                     <p class="General_Header_2">High School Diploma | Completed | August 2019 to June 2024 | Yakima, WA, United States</p>
@@ -678,7 +232,7 @@
                 <h2 class="SubHeader">Certifications and Awards</h2>
                 <hr class="Horizontal_Line">
 
-                <div class="sliced_div">
+                <div class="sliced_div_F">
                     <p class="General_Header_1">Basic Life Support Card</p>
                     <img class="Certification_Logo" onclick="window.open('https://ecards.heart.org/Student/MyeCards/OpenECard?eCardGuid=FC03A7BB-43B5-4E0B-A3A1-098F4B147E07')" src="Images/AHA.jpg" alt="Firepoint Training and Associates LLC Logo">
                     <p class="General_Header_2">ID #: 265417317965</p>
@@ -691,7 +245,7 @@
                 
                 <hr class="Horizontal_Line">
                 
-                <div class="sliced_div">
+                <div class="sliced_div_F">
                     <p class="General_Header_1">TestOut Security Pro Certification</p>
                     <img class="Certification_Logo" onclick="window.open('https://verification.testout.com/verifycert/6-1C6-VGLLXU')" src="Images/TestOut.png" alt="TestOut Logo">
                     <p class="General_Header_2">ID #: 6-1C6-VGLLXU</p>
@@ -704,7 +258,7 @@
 
                 <hr class="Horizontal_Line">
 
-                <div class="sliced_div">
+                <div class="sliced_div_F">
                     <p class="General_Header_1">Washington State Seal of Biliteracy</p>
                     <img class="Certification_Logo" onclick="window.open('https://ospi.k12.wa.us/student-success/resources-subject-area/world-languages/washington-state-seal-biliteracy')" src="Images/SOB.png" alt="Seal of Biliteracy WA Logo">
                     <p class="General_Header_2">ID #: None</p>
@@ -717,7 +271,7 @@
 
                 <hr class="Horizontal_Line">
 
-                <div class="sliced_div">
+                <div class="sliced_div_F">
                     <p class="General_Header_1">OSHA 10 Hour Card</p>
                     <img class="Certification_Logo" onclick="window.open('https://www.oshacardportal.com/portalapp/verify/')" src="Images/OSHA.png" alt="OSHA Logo">
                     <p class="General_Header_2">ID #: 14-702353763</p>
@@ -745,7 +299,7 @@
         <!--Projects Start-->
 
         <section class="Sub_Head_Page" id="Projects">
-            <div class="sliced_div">
+            <div class="sliced_div_F">
                 <h2 class="SubHeader">Previous and Up to Date Projects</h2>
     
                 <hr class="Horizontal_Line">
@@ -917,7 +471,7 @@
         <!--Contact Start-->
 
         <section class="Sub_Head_Page" id="Contact">
-            <div class="sliced_div">
+            <div class="sliced_div_F">
 
                 <h2 class="SubHeader">Contact</h2>
 
@@ -949,7 +503,7 @@
         <!--Research Start-->
 
         <section class="Sub_Head_Page" id="Research">
-            <div class="sliced_div">
+            <div class="sliced_div_F">
 
                 <h2 class="SubHeader">Research</h2>
 
@@ -973,7 +527,7 @@
         <!--Blog Start-->
 
         <section class="Sub_Head_Page" id="Blog">
-            <div class="sliced_div">
+            <div class="sliced_div_F">
 
                 <h2 class="SubHeader">Blog</h2>
 
@@ -996,7 +550,7 @@
 
         <!--Skills Start-->
         <section class="Sub_Head_Page" id="Skills">
-            <div class="sliced_div">
+            <div class="sliced_div_F">
 
                 <h2 class="SubHeader">Self Evaluated Skills</h2>
 
