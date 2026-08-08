@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Understanding Graphics Programming</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="../../../Buttons.js"></script>
+    <script src="../../../Page_Scroll.js"></script>
+
+    <style>
+        ::selection {
+            background: rgba(105, 0, 30, 0.99);
+        }
+        
+        body 
+        {
+            font-size: 14px;
+            background-color: rgb(0, 0, 0);
+            overflow-y: scroll;
+            text-align: center;
+            vertical-align: middle;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: rgb(255, 255, 255);
+        }
+        
+        .container{
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Stacks elements vertically */
+            align-items: center; /* Aligns text vertically */
+            justify-content: center;
+            align-content: center; /* Modern CSS: Vertically centers block elements */
+            flex-wrap: wrap;
+            font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
+            width: 50%;
+        }
+
+        .Button_Projects_Container{
+                display: flex;
+                gap: 30px;
+                flex-direction: row;
+                align-items: center; /* Aligns text vertically */
+                justify-content: center;
+                flex-wrap: wrap;
+                text-align: center;
+                margin-top: 10px;
+        }
+        
+        .Blog{
+            font-size: 14px;
+            width: 100%; 
+            display: block; 
+            text-align: center; 
+            margin: auto;
+        }
+        
+        .Button_Projects{
+            color: #ffffff;
+            outline: none;
+            background-color: rgba(119, 20, 20, 0);
+            border-color: #ffffff;
+            border-radius: 2px;
+            text-align: center;
+            position: relative;
+        }
+
+        .Header_1{
+            font-size: 18px;
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+        }
+
+        .Header_2{
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+        }
+
+        .Paragraph{
+            text-align: left; 
+            color: rgb(255, 255, 255);
+        }
+
+        .Button_Projects{
+            color: #ffffff;
+            outline: none;
+            background-color: rgba(119, 20, 20, 0);
+            border-color: #ffffff;
+            border-radius: 2px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 18px;
+            width: 210px; 
+            height: 30px;
+        }
+        
+        .Paragraph_Image{
+            width: 350px;
+            height: 200px;
+            cursor: pointer; 
+            -webkit-user-drag: none; 
+        }
+
+        .Sliced_Div{
+            border-top: 4px solid #69001E;
+            border-bottom: 4px solid #69001E;
+        }
+
+        @media (max-width: 1200px) {
+            
+            .Blog{
+                font-size: 14px;
+                width: 100%; 
+            }
+            
+            .Button_Projects{
+                color: #ffffff;
+                outline: none;
+                background-color: rgba(119, 20, 20, 0);
+                border-color: #ffffff;
+                border-radius: 2px;
+                cursor: pointer;
+                font-size: 12px; 
+                width: 100px; 
+                height: 35px;
+            }
+
+            .container{
+                text-align: center;
+                display: flex;
+                flex-direction: column; /* Stacks elements vertically */
+                align-items: center; /* Aligns text vertically */
+                justify-content: center;
+                align-content: center; /* Modern CSS: Vertically centers block elements */
+                flex-wrap: wrap;
+                font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!--Blog 1 Start-->
+
+        <section style="width: 100%">
+            
+            <h1 class="Header_1">Understanding Graphics Programming</h1>
+            <h2 class="Header_2">Author: Mario Aguilera Piceno | Date: 02/20/2026 | Last Edited: 02/20/2026 | Last Editor: Mario Aguilera Piceno</h2>
+
+            <div class="Sliced_Div">
+                <br>
+                <img class="Paragraph_Image" onclick="window.open('./../../Images/Blog/1/A.jpg')" src="../../Images/Blog/1/A.jpg" alt="My Game Engine Progress" loading="lazy">
+                        
+                <p class="Paragraph">Developing a piece of software, even when following a teaching material can be quite time consuming but also rewarding when you get expected results. I am currently following along a book I purchased not long ago, <a style="text-decoration: none; color: #F5D327;" href="https://athena.ecs.csus.edu/~gordonvs/textC3E.html" target="_blank" rel="noreferrer noopener">Computer Graphics Programming in OpenGL with C++, 3rd Edition</a> by V. Scott Gordon and John Clevenger, and this is exactly the experience that I have found myself in while following along with the book page by page. In this, I have been learning to how to set up and link libraries through Visual Studio.</p>
+                        
+                <img class="Paragraph_Image" onclick="window.open('https://youtu.be/zvNH6MXb-tw?si=SqpqUZTSmcqSMIey')" src="../../Images/Blog/1/B.jpg" alt="Computer Programming in OpenGL with C++">
+        
+                <p class="Paragraph">If I had to set an end goal for this book, it would be to learn how to further expand my knowledge and build upon my <a style="text-decoration: none; color: #CC17FF;" href="https://github.com/10PAM/Riova_Engine" target="_blank" rel="noreferrer noopener">Riova Game Engine</a> project as I improve my object oriented programming knowledge in C++. Graphics programming is one of the most intriguing things to me when it comes to understanding video game development. Given the fact that it is used extensively throughout the video game industry to render games and even movies, it is something that has become a passion for me to understand.</p>
+            </div>
+            
+        </section>
+                    
+    </div>
+    
+    <div class="Button_Projects_Container">
+        <button class="Button_Projects" onclick="window.open('https://piceno.dev/mario', '_self');">Main Page</button>
+        <button class="Button_Projects" onclick="window.open('https://www.linkedin.com/in/mario-aguilera-piceno', '_self');">LinkedIn</button>
+    </div>
+        
+</body>
+</html>
