@@ -353,7 +353,7 @@
     }
      .contact_buttons_container{
          display: flex;
-         gap: 22px;
+         gap: 12px;
          flex-direction: row;
          align-items: center;
         /* Aligns text vertically */
