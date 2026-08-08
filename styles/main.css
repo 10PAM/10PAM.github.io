@@ -367,8 +367,11 @@
          font-size: 22px;
     }
      .landing_logo{
+         /*
          width: 85px;
-         height: 85px;
+         height: 85px;*/
+         width: 170px;
+         height: 170px;
          cursor: pointer;
          -webkit-user-drag: none;
     }
@@ -401,8 +404,10 @@
          width: 100%;
     }
      .top_header_logo{
-         width: 110px;
-         height: 25px;
+         /*width: 110px;
+         height: 25px;*/
+         width: 190px;
+         height: 45px;
     }
 }
  .Skill_Style{
