@@ -40,6 +40,12 @@
             font-size: 18px;
             width: 210px; 
             height: 30px;
+            word-break: break-all;
+            overflow-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
         }
         
         .intro{
@@ -230,6 +236,27 @@
             -webkit-user-drag: none;
         }
 
+.Employment_Logo{
+            cursor: pointer; 
+            width: 100px; 
+            height: 100px; 
+            -webkit-user-drag: none;
+        }
+
+        .Education_Logo{
+            cursor: pointer; 
+            width: 100px; 
+            height: 100px; 
+            -webkit-user-drag: none;
+        }
+
+        .Education_Logo_CWU{
+            cursor: pointer; 
+            width: 150px; 
+            height: 70px; 
+            -webkit-user-drag: none;
+        }
+
         .Certification_Logo{
             cursor: pointer; 
             width: 100px; 
@@ -248,12 +275,24 @@
             font-size: 20px; 
             color: rgb(255, 255, 255);
             text-decoration: none; 
+            word-break: break-all;
+            overflow-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
         }
 
         .Skills_H2{
             font-size: 18px; 
             color: rgb(255, 255, 255);
             text-decoration: none;
+            word-break: break-all;
+            overflow-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
         }
 
         .Skills_H2_L{
@@ -299,6 +338,11 @@
         }
 
         .sliced_div{
+            border-top: 4px solid #69001E;
+            border-bottom: 4px solid #69001E;
+        }
+
+.sliced_div_F{
             border-top: 4px solid #69001E;
             border-bottom: 4px solid #69001E;
         }
