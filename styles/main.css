@@ -57,6 +57,23 @@
      color: rgb(255, 255, 255);
      font-weight: normal;
 }
+.intro_founder{
+     margin-top: 1px;
+     margin-bottom: 1px;
+     font-size: 24px;
+     font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
+     color: rgb(255, 255, 255);
+     font-weight: normal;
+}
+.intro_founder_container{
+     display: flex; 
+     align-items: center; 
+     justify-content: center; 
+     margin-top: 15px; 
+     width: 250px; 
+     height: 35px; 
+     background-color: rgb(217, 159, 0);
+}
  .Badges{
      padding-right: 0%;
      color: #ffffff;
@@ -343,6 +360,10 @@
          vertical-align: middle;
     }
      .intro{
+         font-size: 22px;
+    }
+     
+    .intro_founder{
          font-size: 22px;
     }
      .landing_logo{
